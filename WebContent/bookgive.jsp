@@ -24,7 +24,7 @@
 	type="text/css">
 
 
-<title>책, 도움!!제발</title>
+<title>책, 도움!!제발!!</title>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
