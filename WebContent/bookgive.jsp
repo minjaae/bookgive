@@ -90,7 +90,6 @@
 </script>
 </head>
 <body>
-
 	<nav>
 		<div class="icon container" style=" cursor: pointer;" onclick="location.href='login.jsp';">
 			<i class="fas fa-sign-in-alt"></i>
