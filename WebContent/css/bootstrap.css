@@ -110,6 +110,18 @@ ol ol, ol ul, ul ol, ul ul {
 	margin-bottom: 0
 }
 
+/* icon */
+.icon {
+	font-size : 25px;
+	color : #000000;
+	margin-top: 20px;
+}
+
+.icon i {
+	float : right;
+}
+
+
 /* main logo */
 .mainLogo {
 	font-size: 45px;

@@ -15,6 +15,10 @@
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
 	rel="stylesheet">
 
+<!-- Icon -->
+<script src="https://kit.fontawesome.com/e72d46677a.js"
+	crossorigin="anonymous"></script>
+
 <!-- Theme Style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css"
@@ -88,6 +92,9 @@
 <body>
 
 	<nav>
+		<div class="icon container" style=" cursor: pointer;" onclick="location.href='login.jsp';">
+			<i class="fas fa-sign-in-alt"></i>
+		</div>
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -107,24 +114,12 @@
 	<div class="banner">
 		<div class="slide">
 			<ul class="imgSlide">
-				<li><img
-					src="#.jpg"
-					alt=""></li>
-				<li><img
-					src="#.jpg"
-					alt=""></li>
-				<li><img
-					src="#.jpg"
-					alt=""></li>
-				<li><img
-					src="#.jpg"
-					alt=""></li>
-				<li><img
-					src="#.jpg"
-					alt=""></li>
-				<li><img
-					src="#.jpg"
-					alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
+				<li><img src="#.jpg" alt=""></li>
 			</ul>
 			<div class="moveBtn">
 				<a href="#" class="pre"> < </a> <a href="#" class="next"> > </a>
