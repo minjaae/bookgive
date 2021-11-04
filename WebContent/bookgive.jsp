@@ -11,9 +11,6 @@
 <meta name="keywords" content="" />
 
 <!-- Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <!-- Icon -->
 <script src="https://kit.fontawesome.com/e72d46677a.js"
@@ -35,7 +32,7 @@
 
 <script language="JavaScript">
 	var idx = 0;
-	var i = 0; // 사진 인덱스를 저장할 변수
+	var i = 0; // 사진 인덱스를 저장할 변수 설정
 	$(".pre").click(
 			function() { // img 크기만큼 왼쪽으로 이동
 				idx = idx - 1;

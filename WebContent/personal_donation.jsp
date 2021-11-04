@@ -11,9 +11,6 @@
 <meta name="keywords" content="" />
 
 <!-- Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <!-- Theme Style -->
 <link rel="stylesheet"
