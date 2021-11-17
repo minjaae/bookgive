@@ -8,7 +8,7 @@ public class InstitutionDonationBean{
 	private String title;
 	private String content;
 	private String img;
-	private Date createAt;
+	private Date createdAt;
 	private Date modifiedAt;
 	private String institution;
 	private boolean donationState;
@@ -29,8 +29,8 @@ public class InstitutionDonationBean{
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
@@ -59,8 +59,8 @@ public class InstitutionDonationBean{
 	public String getImg() {
 		return img;
 	}
-	public Date getCreateAt() {
-		return createAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 	public Date getModifiedAt() {
 		return modifiedAt;

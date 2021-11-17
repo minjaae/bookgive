@@ -13,7 +13,7 @@ public class InstitutionDonationMgrPool {
  	 try{
  	   pool = DBConnectionMgr.getInstance();
  	   }catch(Exception e){
- 	      System.out.println("Error : Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+ 	      System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆÐ");
  	   }
      }
  
@@ -34,7 +34,7 @@ public class InstitutionDonationMgrPool {
  			 bean.setTitle (rs.getString("title"));
  			 bean.setContent (rs.getString("content"));
  			 bean.setImg (rs.getString("img"));
- 			 bean.setCreateAt (rs.getDate("create_at"));
+ 			 bean.setCreatedAt (rs.getDate("created_at"));
  			 bean.setModifiedAt (rs.getDate("modified_at"));
  			 bean.setInstitution(rs.getString("institution"));
  			 bean.setDonationState (rs.getBoolean("donation_state"));

@@ -33,7 +33,7 @@ public class PersonalDonationMgrPool {
 			 bean.setUserID (rs.getString("userID"));
  			 bean.setTitle (rs.getString("title"));
  			 bean.setContent (rs.getString("content"));
- 			 bean.setCreateAt (rs.getDate("create_at"));
+ 			 bean.setCreatedAt (rs.getDate("created_at"));
  			 bean.setModifiedAt (rs.getDate("modified_at"));
  			 bean.setDonationState (rs.getBoolean("donation_state"));
  			 bean.setBookStatus (rs.getString("book_status"));
