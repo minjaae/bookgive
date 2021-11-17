@@ -5,11 +5,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class IntroMgrPool {
+import bookgive.DBConnectionMgr;
+
+public class UserDBMgrPool {
 	
 	private DBConnectionMgr pool = null;
 	
-	public IntroMgrPool() {
+	public UserDBMgrPool() {
  	 try{
  	   pool = DBConnectionMgr.getInstance();
  	   }catch(Exception e){
@@ -17,22 +19,26 @@ public class IntroMgrPool {
  	   }
      }
  
-    public Vector<IntroBean> getRegisterList() {
+    public Vector<UserBean> getRegisterList() {
 	   Connection conn = null;
 	   Statement stmt = null;
 	   ResultSet rs = null;
-	   Vector<IntroBean> vlist = new Vector<IntroBean>();	   
+	   Vector<UserBean> vlist = new Vector<UserBean>();	   
        try {
           conn = pool.getConnection();
-          String strQuery = "select * from intro";
+          String strQuery = "select * from userdb";
           stmt = conn.createStatement();
           rs = stmt.executeQuery(strQuery);
 		  while (rs.next()) {
-			  IntroBean bean = new IntroBean();
-             bean.setStudentId (rs.getInt("studentID"));
-			 bean.setName (rs.getString("name"));
- 			 bean.setDepartment (rs.getString("department"));
- 			 bean.setSchool (rs.getString("school"));
+			 UserBean bean = new UserBean();
+			 bean.setUserID (rs.getString("userID"));
+ 			 bean.setName (rs.getString("name"));
+ 			 bean.setPwd (rs.getString("pwd"));
+ 			 bean.setPhone (rs.getString("phone"));
+ 			 bean.setAddress (rs.getString("address"));
+ 			 bean.setEmail (rs.getString("email"));
+ 			 bean.setRole (rs.getString("role"));
+ 			 bean.setDescription(rs.getString("description"));
  			vlist.addElement(bean);
           }
        } catch (Exception ex) {

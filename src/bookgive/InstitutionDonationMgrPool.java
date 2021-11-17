@@ -13,7 +13,7 @@ public class InstitutionDonationMgrPool {
  	 try{
  	   pool = DBConnectionMgr.getInstance();
  	   }catch(Exception e){
- 	      System.out.println("Error : Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+ 	      System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆÐ");
  	   }
      }
  
