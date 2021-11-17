@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class IntroMgrPool {
+public class PersonalCommentMgrPool {
 	
 	private DBConnectionMgr pool = null;
 	
-	public IntroMgrPool() {
+	public PersonalCommentMgrPool() {
  	 try{
  	   pool = DBConnectionMgr.getInstance();
  	   }catch(Exception e){
@@ -17,22 +17,23 @@ public class IntroMgrPool {
  	   }
      }
  
-    public Vector<IntroBean> getRegisterList() {
+    public Vector<PersonalCommentBean> getRegisterList() {
 	   Connection conn = null;
 	   Statement stmt = null;
 	   ResultSet rs = null;
-	   Vector<IntroBean> vlist = new Vector<IntroBean>();	   
+	   Vector<PersonalCommentBean> vlist = new Vector<PersonalCommentBean>();	   
        try {
           conn = pool.getConnection();
-          String strQuery = "select * from intro";
+          String strQuery = "select * from personal_comment";
           stmt = conn.createStatement();
           rs = stmt.executeQuery(strQuery);
 		  while (rs.next()) {
-			  IntroBean bean = new IntroBean();
-             bean.setStudentId (rs.getInt("studentID"));
-			 bean.setName (rs.getString("name"));
- 			 bean.setDepartment (rs.getString("department"));
- 			 bean.setSchool (rs.getString("school"));
+			  PersonalCommentBean bean = new PersonalCommentBean();
+             bean.setCommentID (rs.getInt("comment_ID"));
+			 bean.setPersonalDonationID (rs.getInt("personal_donation_ID"));
+ 			 bean.setUserID (rs.getString("userID"));
+ 			 bean.setCreatedAt (rs.getDate("created_at"));
+ 			 bean.setModifiedAt (rs.getDate("modified_at"));
  			vlist.addElement(bean);
           }
        } catch (Exception ex) {
