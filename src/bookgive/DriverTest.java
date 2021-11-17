@@ -8,7 +8,7 @@ public class DriverTest{
 
 		try{
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false", "root", "1234");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookgivedb?useSSL=false", "root", "1234");
 			System.out.println("Success");
 		}
 		catch(SQLException ex){ System.out.println("SQLException" + ex);}

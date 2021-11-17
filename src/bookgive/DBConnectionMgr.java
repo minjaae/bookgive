@@ -235,7 +235,7 @@ public class DBConnectionMgr {
             props.put("user", _user);
             props.put("password", _password);
 
-            con = DriverManager.getConnection(_url,_user,_password); //±³ÀçÄÚµå ¿¡·¯, ¼öÁ¤
+            con = DriverManager.getConnection(_url,_user,_password); //ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
         } catch (Throwable t) {
             throw new SQLException(t.getMessage());
         }
