@@ -1,10 +1,6 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	  request.setCharacterEncoding("EUC-KR");
-	  String id = (String)session.getAttribute("idKey");
-%>
 <html>
 
 <head>
@@ -15,9 +11,6 @@
 <meta name="keywords" content="" />
 
 <!-- Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <!-- Theme Style -->
 <link rel="stylesheet"
@@ -26,26 +19,16 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
-<script type="text/javascript">
-	function loginCheck() {
-		if (document.loginFrm.id.value == "") {
-			alert("아이디를 입력해 주세요.");
-			document.loginFrm.id.focus();
-			return;
-		}
-		if (document.loginFrm.pwd.value == "") {
-			alert("비밀번호를 입력해 주세요.");
-			document.loginFrm.pwd.focus();
-			return;
-		}
-		document.loginFrm.submit();
-	}
-</script>
 
-<title>login</title>
+<title>개인 기부 게시판</title>
 </head>
 <body>
+	<%
+		String userID = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+	%>
 	<nav>
 		<div class="mainLogo container">
 			<div>
@@ -62,36 +45,34 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div align="center"><br/><br/>
-		<%if (id != null) {%>
-		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
-			<a href="logout.jsp">로그아웃</a>
-			<%} else {%>
-		<form name="loginFrm" method="post" action="loginProc.jsp">
-			<table>
-				<tr>
-					<td>아 이 디</td>
-					<td><input name="id"></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="pwd"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div align="right">
-							<input type="button" value="로그인" onclick="loginCheck()">&nbsp;
-							<input type="button" value="회원가입" onClick="javascript:location.href='signup.jsp'">
-						</div>
-					</td>
-				</tr>
+	<div>
+		<div class="container">
+			<table 
+				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
+				<thead>
+					<tr>
+						<th
+							style="background-color: #FAFAF0; text-align: center; width: 25%">번호</th>
+						<th
+							style="background-color: #FAFAF0; text-align: center; width: 25%">제목</th>
+						<th
+							style="background-color: #FAFAF0; text-align: center; width: 25%">작성자</th>
+						<th
+							style="background-color: #FAFAF0; text-align: center; width: 25%">작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>JSP스터디의 JSP&Servlet 웹프로그래밍 입문+활용</td>
+						<td>남소희</td>
+						<td>2021-10-22</td>
+					</tr>
+				</tbody>
 			</table>
-		</form>
-		<%}%>
+		</div>
 	</div>
-	
+
 	<footer>
 
 		<div class="container">

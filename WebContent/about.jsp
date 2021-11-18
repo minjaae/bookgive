@@ -1,10 +1,8 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	  request.setCharacterEncoding("EUC-KR");
-	  String id = (String)session.getAttribute("idKey");
-%>
+<%@ page import="java.util.*, bookgive.*"%>
+<jsp:useBean id="regMgr" class="bookgive.IntroMgrPool" />
 <html>
 
 <head>
@@ -26,22 +24,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
-<script type="text/javascript">
-	function loginCheck() {
-		if (document.loginFrm.id.value == "") {
-			alert("아이디를 입력해 주세요.");
-			document.loginFrm.id.focus();
-			return;
-		}
-		if (document.loginFrm.pwd.value == "") {
-			alert("비밀번호를 입력해 주세요.");
-			document.loginFrm.pwd.focus();
-			return;
-		}
-		document.loginFrm.submit();
-	}
-</script>
 
 <title>login</title>
 </head>
@@ -62,36 +44,37 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div align="center"><br/><br/>
-		<%if (id != null) {%>
-		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
-			<a href="logout.jsp">로그아웃</a>
-			<%} else {%>
-		<form name="loginFrm" method="post" action="loginProc.jsp">
-			<table>
+	<div>
+		<div class="container">
+			<h2>About Us</h2>
+			<p>'책, 도움'은 책이 필요한 누구에게나 '기부'를 통해 책을 제공하고 있습니다. 버려지는 책을 줄이고 많은
+				사람들에게 책이 주는 기쁨을 드리고자 노력하고 있습니다. 지구와 발 맞춰 친환경적인 웹 플랫폼을 꾸려나가겠습니다.</p>
+			<h2>Team Members</h2>
+			<table bordercolor="#0000ff" border="1">
 				<tr>
-					<td>아 이 디</td>
-					<td><input name="id"></td>
+					<td><strong>학번</strong></td>
+					<td><strong>이름</strong></td>
+					<td><strong>학과</strong></td>
+					<td><strong>학교</strong></td>>
 				</tr>
+				<%
+					Vector<IntroBean> vlist = regMgr.getRegisterList();
+					int counter = vlist.size();
+					for (int i = 0; i < vlist.size(); i++) {
+						IntroBean iBean = vlist.get(i);
+				%>
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="pwd"></td>
+					<td><%=iBean.getStudentId()%></td>
+					<td><%=iBean.getName()%></td>
+					<td><%=iBean.getDepartment()%></td>
+					<td><%=iBean.getSchool()%></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<div align="right">
-							<input type="button" value="로그인" onclick="loginCheck()">&nbsp;
-							<input type="button" value="회원가입" onClick="javascript:location.href='signup.jsp'">
-						</div>
-					</td>
-				</tr>
+				<%
+					}
+				%>
 			</table>
-		</form>
-		<%}%>
+		</div>
 	</div>
-	
 	<footer>
 
 		<div class="container">

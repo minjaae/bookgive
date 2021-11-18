@@ -142,7 +142,7 @@
 							<ul class="list-unstyled">
 								<li><a href="bookgive.jsp">Home</a></li>
 								<li><a href="#">기관기부</a></li>
-								<li><a href="personal_donation">개인기부</a></li>
+								<li><a href="personal_donation.jsp">개인기부</a></li>
 								<li><a href="about.jsp">About Us</a></li>
 								<li><a href="#">Contact</a></li>
 							</ul>

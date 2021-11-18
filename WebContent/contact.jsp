@@ -1,10 +1,6 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	  request.setCharacterEncoding("EUC-KR");
-	  String id = (String)session.getAttribute("idKey");
-%>
 <html>
 
 <head>
@@ -26,22 +22,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
-<script type="text/javascript">
-	function loginCheck() {
-		if (document.loginFrm.id.value == "") {
-			alert("아이디를 입력해 주세요.");
-			document.loginFrm.id.focus();
-			return;
-		}
-		if (document.loginFrm.pwd.value == "") {
-			alert("비밀번호를 입력해 주세요.");
-			document.loginFrm.pwd.focus();
-			return;
-		}
-		document.loginFrm.submit();
-	}
-</script>
 
 <title>login</title>
 </head>
@@ -62,36 +42,32 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div align="center"><br/><br/>
-		<%if (id != null) {%>
-		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
-			<a href="logout.jsp">로그아웃</a>
-			<%} else {%>
-		<form name="loginFrm" method="post" action="loginProc.jsp">
-			<table>
-				<tr>
-					<td>아 이 디</td>
-					<td><input name="id"></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="pwd"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div align="right">
-							<input type="button" value="로그인" onclick="loginCheck()">&nbsp;
-							<input type="button" value="회원가입" onClick="javascript:location.href='signup.jsp'">
-						</div>
-					</td>
-				</tr>
-			</table>
-		</form>
-		<%}%>
+	<div>
+		<div class="container">
+			<h3>Address</h3>
+			<address>
+				서울시 성북구 보문로 34다길 2로 <br> 성신여자대학교
+			</address>
+
+			<h3>Telephone</h3>
+			<p>
+				<a href="#">02 920 7114</a> <br> <a href="#">+82 10 2345
+					6789</a>
+			</p>
+
+
+			<h3 class="mb-0">Join our bookclub</h3>
+			<p>Be the first to know our latest updates and news!</p>
+			<form action="#" method="" class="form-subscribe">
+				<div class="form-group d-flex" 	style="margin: 0 auto;">
+			
+					<input type="email" class="form-control mr-2"
+						placeholder="Enter your email"> <input type="submit"
+						value="Subscribe" class="btn btn-black px-4 text-white">
+				</div>
+			</form>
+		</div>
 	</div>
-	
 	<footer>
 
 		<div class="container">
