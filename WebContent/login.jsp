@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	  request.setCharacterEncoding("EUC-KR");
-	  String id = (String)session.getAttribute("idKey");
+	request.setCharacterEncoding("EUC-KR");
+	String id = (String) session.getAttribute("idKey");
 %>
 <html>
 
@@ -19,6 +19,10 @@
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
 	rel="stylesheet">
 
+<!-- Icon -->
+<script src="https://kit.fontawesome.com/e72d46677a.js"
+	crossorigin="anonymous"></script>
+
 <!-- Theme Style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css"
@@ -26,7 +30,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
+
 <script type="text/javascript">
 	function loginCheck() {
 		if (document.loginFrm.id.value == "") {
@@ -46,6 +50,10 @@
 <title>login</title>
 </head>
 <body>
+	<div class="icon container" style="cursor: pointer;"
+		onclick="location.href='login.jsp';">
+		<i class="fas fa-sign-in-alt"></i>
+	</div>
 	<nav>
 		<div class="mainLogo container">
 			<div>
@@ -62,36 +70,37 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div align="center"><br/><br/>
-		<%if (id != null) {%>
+
+	<div align="center">
+		<br /> <br />
+		<%
+			if (id != null) {
+		%>
 		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
-			<a href="logout.jsp">로그아웃</a>
-			<%} else {%>
+		<p>제한된 기능을 사용 할 수가 있습니다.
+		<p />
+		<a href="logout.jsp">로그아웃</a>
+		<%
+			} else {
+		%>
+		<h2>Login</h2>
 		<form name="loginFrm" method="post" action="loginProc.jsp">
-			<table>
-				<tr>
-					<td>아 이 디</td>
-					<td><input name="id"></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="pwd"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div align="right">
-							<input type="button" value="로그인" onclick="loginCheck()">&nbsp;
-							<input type="button" value="회원가입" onClick="javascript:location.href='signup.jsp'">
-						</div>
-					</td>
-				</tr>
-			</table>
+			<div class="login-box">
+				<input id="username" type="text" name="id" placeholder="아이디">
+				<label for="id">아이디</label>
+			</div>
+			<div class="login-box">
+				<input id="password" type="password" name="pwd" placeholder="비밀번호">
+				<label for="pwd">비밀번호</label>
+			</div>
+			<div id="join" onClick="javascript:location.href='signup.jsp'">회원가입</div>
+			<div id="loginBtn" value="로그인" onClick="loginCheck()">로그인</div>
 		</form>
-		<%}%>
+		<%
+			}
+		%>
 	</div>
-	
+
 	<footer>
 
 		<div class="container">

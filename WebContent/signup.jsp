@@ -15,6 +15,10 @@
 	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
 	rel="stylesheet">
 
+<!-- Icon -->
+<script src="https://kit.fontawesome.com/e72d46677a.js"
+	crossorigin="anonymous"></script>
+
 <!-- Theme Style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css"
@@ -45,6 +49,10 @@
 <title>Sign up</title>
 </head>
 <body>
+	<div class="icon container" style="cursor: pointer;"
+		onclick="location.href='login.jsp';">
+		<i class="fas fa-sign-in-alt"></i>
+	</div>
 	<nav>
 		<div class="mainLogo container">
 			<div>
@@ -61,72 +69,86 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div align="center">
-		<br /> <br />
-		<form name="regFrm" method="post" action="memberProc.jsp">
-			<table cellpadding="5">
-				<tr>
-					<td bgcolor="#FFFFCC">
-						<table border="1" cellspacing="0" cellpadding="2" width="600">
-							<tr bgcolor="#996600">
-								<td colspan="2"><font color="#FFFFFF"><b>회원 가입</b></font></td>
+	<div class="wrap wd668">
+		<div class="container">
+			<div class="form_txtInput">
+				<h2>회원가입</h2>
+				<p class="exTxt">회원가입 시 '기관 / 일반 회원' 선택을 반드시 진행하셔야 합니다.</p>
+				<div class="join_form">
+					<table>
+						<colgroup>
+							<col width="30%" />
+							<col width="auto" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th><span>아이디</span></th>
+								<td><input type="text" placeholder="ID 를 입력하세요."></td>
 							</tr>
 							<tr>
-								<td width="30%">아이디</td>
-								<td width="70%"><input name="id" size="15"> <input
-									type="button" value="ID중복확인"
-									onClick="idCheck(this.form.id.value)"></td>
+								<th><span>이름</span></th>
+								<td><input type="text" placeholder=""></td>
 							</tr>
 							<tr>
-								<td>패스워드</td>
-								<td><input type="password" name="pwd" size="15"></td>
+								<th><span>비밀번호</span></th>
+								<td><input type="text" placeholder="비밀번호를 입력해주세요."></td>
 							</tr>
 							<tr>
-								<td>패스워드 확인</td>
-								<td><input type="password" name="repwd" size="15"></td>
+								<th><span>비밀번호 확인</span></th>
+								<td><input type="text" placeholder="비밀번호를 확인하세요"></td>
+							</tr>
+							<tr class="email">
+								<th><span>이메일</span></th>
+								<td><input type="text" class="email" placeholder=""><span
+									class="mar10">@</span> <input type="text" class="email email2"
+									placeholder=""> <a href="javascript:;"
+									class="btn_confirm">인증번호 발송</a></td>
 							</tr>
 							<tr>
-								<td>이름</td>
-								<td><input name="name" size="15"></td>
+								<th><span>인증번호 확인</span></th>
+								<td><input type="text" class="send_number"
+									placeholder="10:00"> <a href="javascript:;"
+									class="btn_confirm">인증번호 발송</a></td>
 							</tr>
 							<tr>
-								<td>role</td>
-								<td>개인<input type="radio" name="role" value="1" checked>
-									기관<input type="radio" name="role" value="2">
-								</td>
+								<th><span>휴대폰 번호</span></th>
+								<td><input type="text" placeholder="ID 를 입력하세요."></td>
 							</tr>
-							<tr>
-								<td>전화번호</td>
-								<td><input name="name" size="15"></td>
-							</tr>
-
-							<tr>
-								<td>Email</td>
-								<td><input name="email" size="30"></td>
-							</tr>
-							<tr>
-								<td>우편번호</td>
-								<td><input name="zipcode" size="5" readonly> <input
-									type="button" value="우편번호찾기" onClick="zipSearch()"></td>
-							</tr>
-							<tr>
-								<td>주소</td>
-								<td><input name="address" size="45"></td>
-							</tr>
-							<tr>
-								<td colspan="2" align="center"><input type="button"
-									value="회원가입" onclick="inputCheck()"> &nbsp; &nbsp; <input
-									type="reset" value="다시쓰기"> &nbsp; &nbsp; <input
-									type="button" value="로그인"
-									onClick="javascript:location.href='login.jsp'"></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</form>
+						</tbody>
+					</table>
+					<div class="exform_txt">
+						<span>표시는 필수적으로 입력해주셔야 가입이 가능합니다.</span>
+					</div>
+				</div>
+				<!-- join_form E  -->
+				<div class="agree_wrap">
+					<div class="checkbox_wrap">
+						<input type="checkbox" id="news_letter" name="news_letter"
+							class="agree_chk"> <label for="news_letter">[선택]뉴스레터
+							수신동의</label>
+					</div>
+					<div class="checkbox_wrap mar27">
+						<input type="checkbox" id="marketing" name="marketing"
+							class="agree_chk"> <label for="marketing">[선택]마케팅
+							목적 개인정보 수집 및 이용에 대한 동의</label>
+						<ul class="explan_txt">
+							<li><span class="red_txt">항목 : 성별, 생년월일</span></li>
+							<li>고객님께서는 위의 개인정보 및 회원정보 수정 등을 통해 추가로 수집하는 개인정보에<br /> 대해
+								동의하지 않거나 개인정보를 기재하지 않음으로써 거부하실 수 있습니다.<br /> 다만 이때 회원 대상 서비스가
+								제한될 수 있습니다.
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="btn_wrap">
+					<a href="javascript:;">다음</a>
+				</div>
+			</div>
+			<!-- form_txtInput E -->
+		</div>
+		<!-- content E-->
 	</div>
+	<!-- container E -->
 
 	<footer>
 
