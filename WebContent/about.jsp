@@ -50,12 +50,12 @@
 			<p>'책, 도움'은 책이 필요한 누구에게나 '기부'를 통해 책을 제공하고 있습니다. 버려지는 책을 줄이고 많은
 				사람들에게 책이 주는 기쁨을 드리고자 노력하고 있습니다. 지구와 발 맞춰 친환경적인 웹 플랫폼을 꾸려나가겠습니다.</p>
 			<h2>Team Members</h2>
-			<table bordercolor="#0000ff" border="1">
+			<table border="1">
 				<tr>
 					<td><strong>학번</strong></td>
 					<td><strong>이름</strong></td>
 					<td><strong>학과</strong></td>
-					<td><strong>학교</strong></td>>
+					<td><strong>학교</strong></td>
 				</tr>
 				<%
 					Vector<IntroBean> vlist = regMgr.getRegisterList();
