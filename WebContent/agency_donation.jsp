@@ -12,6 +12,7 @@
 
 <!-- Font -->
 
+
 <!-- Theme Style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css"
@@ -46,19 +47,23 @@
 		</div>
 	</nav>
 	<div>
+		<input type="submit" value="글 쓰기"; 
+		onClick="location.href='agency_write.jsp'"; style = "position: relative; left: 75%">
 		<div class="container">
 			<table 
 				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
 				<thead>
 					<tr>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 25%">번호</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">번호</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 25%">제목</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">제목</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 25%">작성자</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 25%">작성일</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">작성일</th>
+						<th
+							style="background-color: #FAFAF0; text-align: center; width: 20%">기부 요청</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -67,6 +72,7 @@
 						<td>JSP스터디의 JSP&Servlet 웹프로그래밍 입문+활용</td>
 						<td>남소희</td>
 						<td>2021-10-22</td>
+						<td><input type="submit" value="기부 요청하기" onClick=""></td>
 					</tr>
 				</tbody>
 			</table>

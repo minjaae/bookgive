@@ -12,6 +12,7 @@
 
 <!-- Font -->
 
+
 <!-- Theme Style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css"
@@ -46,6 +47,8 @@
 		</div>
 	</nav>
 	<div>
+		<input type="submit" value="글 쓰기"; 
+		onClick="location.href='personal_write.jsp'"; style = "position: relative; left: 75%">
 		<div class="container">
 			<table 
 				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">

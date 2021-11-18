@@ -57,7 +57,7 @@
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #FAFAF0; text-align: center;">개인
+								style="background-color: #FAFAF0; text-align: center;">기관
 								기부 게시판 책 등록</th>
 						</tr>
 					</thead>
