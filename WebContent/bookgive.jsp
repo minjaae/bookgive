@@ -1,8 +1,10 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% 
+		String id = (String)session.getAttribute("idKey");
+%>
 <html>
-
 <head>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -88,6 +90,12 @@
 </head>
 <body>
 	<nav>
+	<%
+if(id != null){
+%>
+<div align="center"> 
+           <strong><%=id%></strong>님이 로그인 하셨습니다. </div>
+  <%} %>
 		<div class="icon container" style=" cursor: pointer;" onclick="location.href='login.jsp';">
 			<i class="fas fa-sign-in-alt"></i>
 		</div>

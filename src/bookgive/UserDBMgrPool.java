@@ -1,6 +1,7 @@
 package bookgive;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
@@ -47,5 +48,27 @@ public class UserDBMgrPool {
 	      pool.freeConnection(conn);
        }
        return vlist;
+    }
+    
+    public boolean login(String id, String pwd) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean loginCon = false;
+        try {
+            con = pool.getConnection();
+			String query = "select count(*) from userdb where userID = ? and pwd = ?";
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pwd);
+            rs = pstmt.executeQuery();
+            if(rs.next()&&rs.getInt(1)>0) 
+            	loginCon =true;
+        }catch(Exception ex) {
+            System.out.println("Exception" + ex);
+        }finally{
+             pool.freeConnection(con,pstmt,rs);
+        }
+        return loginCon;
     }
  }
