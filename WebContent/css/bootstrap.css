@@ -308,7 +308,7 @@ input:focus, input:not(:placeholder-shown){
 .join-box {
 	position: relative;
 	background-color: #fafaf0;
-	height: 850px;
+	height: 950px;
 	width: 100%;
 	margin: 0 auto;
 }

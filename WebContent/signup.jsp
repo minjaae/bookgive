@@ -87,9 +87,8 @@
 								<tbody>
 									<tr>
 										<th><span>role</span></th>
-										<td>
-										<input type="radio" name="role" value="user">일반 회원
-                                        <input type="radio" name="role" value="agency">기관
+										<td><input type="radio" name="role" value="user">일반
+											회원 <input type="radio" name="role" value="agency">기관
 										</td>
 									</tr>
 
@@ -121,14 +120,29 @@
 
 									<tr class="email">
 										<th><span>이메일</span></th>
-										<td><input type="text" name="email" class="email" placeholder=""><span
-											class="mar10">@</span> <input type="text" name="email"
-											class="email email2" placeholder=""></td>
+										<td><input type="text" name="email" class="email"
+											placeholder=""><span class="mar10">@</span> <input
+											type="text" name="email" class="email email2" placeholder=""></td>
 									</tr>
 									<tr>
 										<th><span>전화번호</span></th>
-										<td><input type="text" name="phone" placeholder="번호를 입력하세요."></td>
+										<td><input type="text" name="phone"
+											placeholder="번호를 입력하세요."></td>
 									</tr>
+
+									<tr>
+										<th><span>우편번호</span></th>
+										<td><input name="zipcode" size="5" readonly>
+											<a href="javascript:;" onClick="zipSearch()"
+											class="btn_confirm" onClick="idCheck(this.form.id.value)">
+											우편번호 찾기</a></td>
+									</tr>
+									
+									<tr>
+										<th><span>주소</span></th>
+										<td><input name="address" size="45"></td>
+									</tr>
+
 								</tbody>
 							</table>
 
