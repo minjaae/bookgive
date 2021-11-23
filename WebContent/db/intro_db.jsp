@@ -1,14 +1,14 @@
-<%@ page contentType="text/html; charset=EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*, bookgive.*"%>
-<jsp:useBean id="regMgr" class="bookgive.IntroMgrPool" />
+<jsp:useBean id="regMgr" class="bookgive.UserDBMgrPool" />
 <html>
 <head>
-<title>µ¥º£ Àß ¿¬µ¿µÆ´ÂÁö È®ÀÎ ÆäÀÌÁö</title>
+<title>ë°ë²  ì˜ ì—°ë™ëëŠ”ì§€ í™•ì¸ í˜ì´ì§€</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="#FFFFCC">
-<h2>µ¥º£ Àß ¿¬µ¿µÆ´ÂÁö È®ÀÎ</h2><br/>
-<h3>ÆÀ¿ø ¼Ò°³ µ¥º£</h3>
+<h2>ë°ë²  ì˜ ì—°ë™ëëŠ”ì§€ í™•ì¸</h2><br/>
+<h3>íŒ€ì› ì†Œê°œ ë°ë² </h3>
 <table bordercolor="#0000ff" border="1">
 <tr>
    <td><strong>studentID</strong></td>
@@ -17,16 +17,14 @@
    <td><strong>school</strong></td>>
 </tr>
 <%
-	Vector<IntroBean> vlist = regMgr.getRegisterList();
+	Vector<UserBean> vlist = regMgr.getRegisterList();
 	int counter = vlist.size();
 	for(int i=0; i<vlist.size(); i++){
-		IntroBean iBean =vlist.get(i);
+		UserBean iBean =vlist.get(i);
 %>
 <tr>
-	<td><%=iBean.getStudentId()%></td>
 	<td><%=iBean.getName()%></td>
-	<td><%=iBean.getDepartment()%></td>
-	<td><%=iBean.getSchool()%></td>
+	<td><%=iBean.getAddress()%></td>
 </tr>
 <%
    }

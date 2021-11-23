@@ -1,6 +1,5 @@
-<!doctype html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+
 <html>
 
 <head>
@@ -11,9 +10,6 @@
 <meta name="keywords" content="" />
 
 <!-- Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <!-- Icon -->
 <script src="https://kit.fontawesome.com/e72d46677a.js"
@@ -26,17 +22,19 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="signup.js"></script>
 <script type="text/javascript">
 	function idCheck(id) {
 		frm = document.regFrm;
 		if (id == "") {
 			alert("아이디를 입력해 주세요.");
 			frm.id.focus();
-			return;
+			return false;
 		}
 		url = "idCheck.jsp?id=" + id;
 		window.open(url, "IDCheck", "width=300,height=150");
+		
+		return false;
 	}
 
 	function zipSearch() {
@@ -87,8 +85,8 @@
 								<tbody>
 									<tr>
 										<th><span>role</span></th>
-										<td><input type="radio" name="role" value="user">일반
-											회원 <input type="radio" name="role" value="agency">기관
+										<td><input type="radio" name="role" value="일반">일반
+											회원 <input type="radio" name="role" value="기관">기관
 										</td>
 									</tr>
 
@@ -100,9 +98,12 @@
 
 									<tr>
 										<th><span>아이디</span></th>
-										<td><input type="text" name="id" size="15"
-											placeholder="ID 를 입력하세요."> <a href="javascript:;"
-											class="btn_confirm" onClick="idCheck(this.form.id.value)">아이디
+										<td>
+										<input type="text" name="userID" size="15"
+											placeholder="ID 를 입력하세요."> 
+											<input type="button" value="ID중복확인" onClick="idCheck(this.form.userID.value)">
+											<a href="javascript:;"
+											class="btn_confirm" onClick="idCheck(this.form.userID.value)">아이디
 												중복 확인</a></td>
 									</tr>
 
@@ -118,11 +119,10 @@
 											placeholder="비밀번호를 확인하세요."></td>
 									</tr>
 
-									<tr class="email">
+									<tr>
 										<th><span>이메일</span></th>
-										<td><input type="text" name="email" class="email"
-											placeholder=""><span class="mar10">@</span> <input
-											type="text" name="email" class="email email2" placeholder=""></td>
+										<td><input type="text" name="email" size="15"
+											placeholder=""></td>
 									</tr>
 									<tr>
 										<th><span>전화번호</span></th>
@@ -134,7 +134,7 @@
 										<th><span>우편번호</span></th>
 										<td><input name="zipcode" size="5" readonly>
 											<a href="javascript:;" onClick="zipSearch()"
-											class="btn_confirm" onClick="idCheck(this.form.id.value)">
+											class="btn_confirm">
 											우편번호 찾기</a></td>
 									</tr>
 									
@@ -151,7 +151,7 @@
 							</div>
 
 							<div class="btn_wrap">
-								<a href="javascript:;">가입하기</a>
+								<a href="javascript:;" onclick="inputCheck()">가입하기</a>
 							</div>
 						</div>
 
@@ -161,7 +161,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<footer>
 		<div class="container">

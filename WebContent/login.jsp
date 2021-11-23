@@ -15,9 +15,6 @@
 <meta name="keywords" content="" />
 
 <!-- Font -->
-<link
-	href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500i,700|Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <!-- Icon -->
 <script src="https://kit.fontawesome.com/e72d46677a.js"

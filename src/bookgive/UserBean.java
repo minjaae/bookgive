@@ -13,7 +13,12 @@ public class UserBean{
 	private String email;
 	private String role;
 	private String description;
+	private String zipcode;
 	
+	
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 	
 	public void setUserID (String userID) {
 		this.userID = userID;
@@ -48,7 +53,7 @@ public class UserBean{
 	}
        
 	
-	public String getUserId() {
+	public String getUserID() {
 		return userID;
 	}
 
@@ -78,6 +83,10 @@ public class UserBean{
 	
 	public String getDescription() {
 		return description;
+	}
+	
+	public String getZipcode() {
+		return zipcode;
 	}
 	
 }
