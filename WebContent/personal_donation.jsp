@@ -65,8 +65,7 @@
 		</div>
 	</nav>
 	<div>
-		<input type="submit" value="글 쓰기"; 
-		onClick="location.href='personal_write.jsp'"; style = "position: relative; left: 75%">
+		<input class="btn-write" type="submit" value="글 쓰기" onClick="location.href='personal_write.jsp'">
 		<div class="container">
 			<table 
 				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
