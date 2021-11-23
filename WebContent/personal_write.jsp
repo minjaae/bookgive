@@ -91,8 +91,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" value="글쓰기"
-					style="position: relative; left: 80%">
+				<input class="btn-write" type="submit" value="글쓰기">
 			</form>
 		</div>
 	</div>
