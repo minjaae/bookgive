@@ -29,7 +29,7 @@
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
 
-<title>개인 기부 게시판 글쓰기</title>
+<title>기업 기부 게시판 글쓰기</title>
 </head>
 <body>
 	<%
@@ -39,17 +39,17 @@
 		}
 	%>
 	<nav>
-		<%
-			if(id != null){
-		%>
-		<div align="center"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다. </div>
-  		<%
-  			}
-		%>
 		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
 			<i class="fas fa-sign-in-alt"></i>
 		</div>
+		<%
+			if(id != null){
+		%>
+		<div align="right"> 
+        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
+  		<%
+  			}
+		%>
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>

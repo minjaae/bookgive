@@ -197,13 +197,13 @@ ol ol, ol ul, ul ol, ul ul {
 	margin: 0 auto;
 	padding: 0;
 	overflow: hidden;
-	/*영역 밖으로 튀어나온 오브젝트는 숨긴다.*/
+	/*�쁺�뿭 諛뽰쑝濡� ���뼱�굹�삩 �삤釉뚯젥�듃�뒗 �닲湲대떎.*/
 }
 
 .imgSlide {
 	width: 4800px;
 	left: -2400px;
-	/* 이미지 크키 X 이미지 개수 */
+	/* �씠誘몄� �겕�궎 X �씠誘몄� 媛쒖닔 */
 	height: 320px;
 	position: absolute;
 	z-index: 1;
@@ -211,7 +211,7 @@ ol ol, ol ul, ul ol, ul ul {
 
 .imgSlide li {
 	float: left;
-	/*이미지를 옆으로 나열시킨다.*/
+	/*�씠誘몄�瑜� �쁿�쑝濡� �굹�뿴�떆�궓�떎.*/
 }
 
 .imgSlide img {
@@ -245,7 +245,7 @@ ol ol, ol ul, ul ol, ul ul {
 	margin-right: 10px;
 }
 
-/* 로그인 */
+/* 濡쒓렇�씤 */
 .login-box {
 	position: relative;
 	marign: 10px 0;
@@ -296,7 +296,7 @@ input:focus, input:not(:placeholder-shown){
 	margin-top: 25px;
 }
 
-/* 회원가입 */
+/* �쉶�썝媛��엯 */
 #join {
 	text-align: right;
 	font-size: 11pt;
@@ -715,7 +715,7 @@ input:focus, input:not(:placeholder-shown){
 	
 }
 
-/* 여기까지 */
+/* �뿬湲곌퉴吏� */
 dt {
 	font-weight: 700
 }
@@ -4093,7 +4093,7 @@ textarea.form-control {
 		-webkit-box-shadow 0.15s ease-in-out
 }
 
-/* 버튼 */
+/* 踰꾪듉 */
 @media ( prefers-reduced-motion :reduce) {
 	.btn {
 		-webkit-transition: none;
@@ -4709,7 +4709,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 	box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5)
 }
 
-/* 링크 버튼 */
+/* 留곹겕 踰꾪듉 */
 .btn-link {
 	font-weight: 400;
 	color: #537755;
@@ -11451,7 +11451,7 @@ border-radius
 	border-radius: 0.25rem
 }
 
-/* 페이지링크 */
+/* �럹�씠吏�留곹겕 */
 .page-link {
 	position: relative;
 	display: block;
@@ -18030,7 +18030,7 @@ supports ((position:-webkit-sticky ) or (position:sticky )){ .
 	color: #fff !important
 }
 
-/* copyright 색깔 */
+/* copyright �깋源� */
 .text-primary {
 	color: #537755 !important
 }
