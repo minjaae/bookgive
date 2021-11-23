@@ -12,6 +12,7 @@
 		vlist = mMgr.zipcodeRead(area3);
 	 }
 %>
+
 <html>
 <head>
 <title>우편번호 검색</title>

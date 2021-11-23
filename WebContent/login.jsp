@@ -47,11 +47,19 @@
 <title>login</title>
 </head>
 <body>
-	<div class="icon container" style="cursor: pointer;"
-		onclick="location.href='login.jsp';">
-		<i class="fas fa-sign-in-alt"></i>
-	</div>
+
 	<nav>
+		<%
+			if(id != null){
+		%>
+		<div align="center"> 
+        	<strong><%=id%></strong>님이 로그인 하셨습니다. </div>
+  		<%
+  			}
+		%>
+		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
+			<i class="fas fa-sign-in-alt"></i>
+		</div>
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -73,9 +81,8 @@
 		<%
 			if (id != null) {
 		%>
-		<b><%=id%></b>님 환영 합니다.
-		<p>제한된 기능을 사용 할 수가 있습니다.
-		<p />
+		<b><%=id%></b>님 환영 합니다.<br>
+		제한된 기능을 사용 할 수가 있습니다.<br>
 		<a href="logout.jsp">로그아웃</a>
 		<%
 			} else {

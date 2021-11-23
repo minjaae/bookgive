@@ -2,7 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-
+<%
+	request.setCharacterEncoding("EUC-KR");
+	String id = (String) session.getAttribute("idKey");
+%>
 <html>
 
 <head>
@@ -14,6 +17,9 @@
 
 <!-- Font -->
 
+<!-- Icon -->
+<script src="https://kit.fontawesome.com/e72d46677a.js"
+	crossorigin="anonymous"></script>
 
 <!-- Theme Style -->
 <link rel="stylesheet"
@@ -33,6 +39,17 @@
 		}
 	%>
 	<nav>
+		<%
+			if(id != null){
+		%>
+		<div align="center"> 
+        	<strong><%=id%></strong>님이 로그인 하셨습니다. </div>
+  		<%
+  			}
+		%>
+		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
+			<i class="fas fa-sign-in-alt"></i>
+		</div>
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
