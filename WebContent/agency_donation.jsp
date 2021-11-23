@@ -65,8 +65,7 @@
 		</div>
 	</nav>
 	<div>
-		<input type="submit" value="글 쓰기"; 
-		onClick="location.href='agency_write.jsp'"; style = "position: relative; left: 75%">
+		<input class="btn-write" type="submit" value="글 쓰기" OnClick="location.href='agency_write.jsp'">
 		<div class="container">
 			<table 
 				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
@@ -90,7 +89,7 @@
 						<td>JSP스터디의 JSP&Servlet 웹프로그래밍 입문+활용</td>
 						<td>남소희</td>
 						<td>2021-10-22</td>
-						<td><input type="submit" value="기부 요청하기" onClick=""></td>
+						<td><input class="btn-request" type="submit" value="기부 요청하기" onClick=""></td>
 					</tr>
 				</tbody>
 			</table>
