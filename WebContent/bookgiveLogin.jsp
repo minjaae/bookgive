@@ -92,13 +92,16 @@
 <body>
 
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;" onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
 			if(id != null){
-				response.sendRedirect("bookgiveLogin.jsp");
-			}
+		%>
+		<div align="right"> 
+        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
+  		<%
+  			}
 		%>
 		<div class="mainLogo container">
 			<div>

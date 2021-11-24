@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
 
 <%
 	request.setCharacterEncoding("EUC-KR");
@@ -37,7 +37,7 @@
 		}
 		url = "idCheck.jsp?id=" + id;
 		window.open(url, "IDCheck", "width=300,height=150");
-		
+
 		return false;
 	}
 
@@ -52,16 +52,18 @@
 </head>
 <body>
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='login.jsp';">
 			<i class="fas fa-sign-in-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
 		<div class="mainLogo container">
 			<div>
@@ -83,8 +85,10 @@
 		<div class="container">
 			<div class="join-box">
 				<div id="join-frm">
-					<h2 style="background: #fafaf0;">회원가입</h2>
-					<p style="background: #fafaf0;">회원가입 시 '기관 / 일반 회원'을 정확히 구분해주시길
+					<p
+						style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">
+						회원가입</p>
+					<p style="background: #fafaf0;">회원가입 시 '일반 회원 / 기관'을 정확히 구분해주시길
 						바랍니다.</p>
 					<form name="regFrm" method="post" action="memberProc.jsp">
 						<div class="join-table-box">
@@ -96,8 +100,15 @@
 								<tbody>
 									<tr>
 										<th><span>role</span></th>
-										<td><input type="radio" name="role" value="일반">일반
-											회원 <input type="radio" name="role" value="기관">기관
+										<td>
+											<div class="radio-box">
+
+												<input type="radio" id="user" name="role" value="1" checked />
+												<label for="user">일반 회원</label> 
+												<input type="radio" id="agency" name="role" value="2" /> 
+												<label for="agency">기관</label>
+
+											</div>
 										</td>
 									</tr>
 
@@ -109,13 +120,11 @@
 
 									<tr>
 										<th><span>아이디</span></th>
-										<td>
-										<input type="text" name="userID" size="15"
-											placeholder="ID 를 입력하세요."> 
-											<input type="button" value="ID중복확인" onClick="idCheck(this.form.userID.value)">
-											<a href="javascript:;"
-											class="btn_confirm" onClick="idCheck(this.form.userID.value)">아이디
-												중복 확인</a></td>
+										<td><input type="text" name="userID" size="15"
+											placeholder="ID 를 입력하세요.">
+											<button class="button_confirm" type="button" value="ID중복확인"
+												onClick="idCheck(this.form.userID.value)">아이디 중복 확인
+											</button></td>
 									</tr>
 
 									<tr>
@@ -143,12 +152,11 @@
 
 									<tr>
 										<th><span>우편번호</span></th>
-										<td><input name="zipcode" size="5" readonly>
-											<a href="javascript:;" onClick="zipSearch()"
-											class="btn_confirm">
-											우편번호 찾기</a></td>
+										<td><input name="zipcode" size="5" readonly> <a
+											href="javascript:;" onClick="zipSearch()" class="btn_confirm">
+												우편번호 찾기</a></td>
 									</tr>
-									
+
 									<tr>
 										<th><span>주소</span></th>
 										<td><input name="address" size="45"></td>
