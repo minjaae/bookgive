@@ -53,8 +53,8 @@
 				}
 				$(".imgSlide>li:last-child").remove();
 				$(".imgSlide").prepend(
-						"<li><img src='http://doqtqu.dothome.co.kr/images/imgSlideBtn/images("
-								+ i + ").jpg' alt=''></li>");
+						"<li><img src='./img/("
+								+ i + ").png' alt=''></li>");
 				$(".imgSlide").css({
 					"left" : "-3200px"
 				});
@@ -77,8 +77,8 @@
 				}
 				$(".imgSlide>li:first-child").remove();
 				$(".imgSlide").append(
-						"<li><img src='http://doqtqu.dothome.co.kr/images/imgSlideBtn/images("
-								+ i + ").jpg' alt=''></li>");
+						"<li><img src='./img/("
+								+ i + ").png' alt=''></li>");
 				$(".imgSlide").css({
 					"left" : "-1600px"
 				});
@@ -119,9 +119,9 @@
 	<div class="banner">
 		<div class="slide">
 			<ul class="imgSlide">
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
+				<li><img src="./img/1.png" alt=""></li>
+				<li><img src="bannerImg.png" alt=""></li>
+				<li><img src="bannerImg.png" alt=""></li>
 				<li><img src="#.jpg" alt=""></li>
 				<li><img src="#.jpg" alt=""></li>
 				<li><img src="#.jpg" alt=""></li>
