@@ -64,11 +64,11 @@
 	</nav>
 	<div>
 		<div class="container">
-			<h2>About Us</h2>
+			<h2 style="padding: 0.7rem; font-style: italic; color: #537755;">About Us</h2>
 			<p>'책, 도움'은 책이 필요한 누구에게나 '기부'를 통해 책을 제공하고 있습니다. 버려지는 책을 줄이고 많은
 				사람들에게 책이 주는 기쁨을 드리고자 노력하고 있습니다. 지구와 발 맞춰 친환경적인 웹 플랫폼을 꾸려나가겠습니다.</p>
-			<h2>Team Members</h2>
-			<table border="1">
+			<h2 style="padding: 0.7rem; font-style: italic; color: #537755;">Team Members</h2>
+			<table class="about_table">
 				<tr>
 					<td><strong>학번</strong></td>
 					<td><strong>이름</strong></td>
