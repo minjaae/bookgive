@@ -445,6 +445,15 @@ none
 	width: 587px;
 	margin: 20px 0 0 20px;
 }
+	
+.about_table {
+	text-align: center;
+}
+
+.about_table td {
+	border: 1px solid #537755;
+	padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
 
 .join-table-box table input {
 	border: 1px solid #ececec;
