@@ -60,19 +60,19 @@
 	</nav>
 	<div>
 		<div class="container">
-			<h3>Address</h3>
+			<h3 style="padding: 0.7rem; font-style: italic; color: #537755;">Address</h3>
 			<address>
 				서울시 성북구 보문로 34다길 2로 <br> 성신여자대학교
 			</address>
 
-			<h3>Telephone</h3>
+			<h3 style="padding: 0.7rem; font-style: italic; color: #537755;">Telephone</h3>
 			<p>
 				<a href="#">02 920 7114</a> <br> <a href="#">+82 10 2345
 					6789</a>
 			</p>
 
 
-			<h3 class="mb-0">Join our bookclub</h3>
+			<h3 class="mb-0" style="padding: 0.7rem; font-style: italic; color: #537755;">Join our bookclub</h3>
 			<p>Be the first to know our latest updates and news!</p>
 			<form action="#" method="" class="form-subscribe">
 				<div class="form-group d-flex" 	style="margin: 0 auto;">
