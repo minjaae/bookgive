@@ -1,6 +1,8 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <%
 	request.setCharacterEncoding("EUC-KR");
 	String id = (String) session.getAttribute("idKey");
@@ -81,12 +83,19 @@
 							style="background-color: #FAFAF0; text-align: center; width: 25%">작성일</th>
 					</tr>
 				</thead>
+				<%  // 변수 이름 바꿔도 OK
+					String bname = "JSP스터디의 JSP&Servlet 웹프로그래밍 입문+활용";
+					String writer = "남소희";
+					Date wdate = new Date();
+					SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					String bdate = sf.format(wdate);
+				%>
 				<tbody>
 					<tr>
 						<td>1</td>
-						<td>JSP스터디의 JSP&Servlet 웹프로그래밍 입문+활용</td>
-						<td>남소희</td>
-						<td>2021-10-22</td>
+						<td><%=bname %></td>
+						<td><%=writer %></td>
+						<td><%=bdate %></td>
 					</tr>
 				</tbody>
 			</table>
