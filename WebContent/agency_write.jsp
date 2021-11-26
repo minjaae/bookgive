@@ -70,11 +70,11 @@
 		<div>
 			<form method="post" action="">
 				<table
-					style="text-align: center; border: 1px solid #dddddd; width: 80%; margin-left: 10%;">
+					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #FAFAF0; text-align: center;">기관
+								style="background-color: #FAFAF0; text-align: center; width: 100%;">기관
 								기부 게시판 책 등록</th>
 						</tr>
 					</thead>
@@ -82,16 +82,16 @@
 						<tr>
 							<td><input type="text" placeholder="책 제목을 입력해주세요." name="pdTitle"
 								maxlength="50"
-								style="width: 90%;"></td>
+								style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
 						</tr>
 						<tr>
 							<td><textarea placeholder="책의 상태를 자세히 작성해주세요." name="pdContent"
 									maxlength="2048"
-									style="width: 90%; height: 350px;"></textarea></td>
+									style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 						</tr>
 					</tbody>
 				</table>
-				<input class="btn-write" type="submit" value="글쓰기">
+				<input class="btn-write" type="submit" value="글 쓰기" onClick="location.href='agency_donation.jsp'" >
 			</form>
 		</div>
 	</div>
