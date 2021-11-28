@@ -17,7 +17,7 @@
    <td><strong>school</strong></td>>
 </tr>
 <%
-	Vector<UserBean> vlist = regMgr.getRegisterList();
+Vector<UserBean> vlist = regMgr.getRegisterList();
 	int counter = vlist.size();
 	for(int i=0; i<vlist.size(); i++){
 		UserBean iBean =vlist.get(i);

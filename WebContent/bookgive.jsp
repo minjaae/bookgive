@@ -34,63 +34,42 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script language="JavaScript">
-	var idx = 0;
-	var i = 0; // 사진 인덱스를 저장할 변수 설정
-	$(".pre").click(
-			function() { // img 크기만큼 왼쪽으로 이동
-				idx = idx - 1;
-				if (idx < 1) {
-					i = idx % 3;
-					i = i + 4;
-					if (i == 4) {
-						i = 1;
-					}
-				} else {
-					i = idx % 3;
-					if (i == 0) {
-						i = 3;
-					}
-				}
-				$(".imgSlide>li:last-child").remove();
-				$(".imgSlide").prepend(
-						"<li><img src='./img/("
-								+ i + ").png' alt=''></li>");
-				$(".imgSlide").css({
-					"left" : "-3200px"
-				});
-				$(".imgSlide").stop().animate({
-					"left" : "-2400px"
-				}, "slow");
-				console.log(idx);
-			});
-	$(".next").click(
-			function() { // img 크기만큼 오른쪽으로 이동
-				idx = idx + 1;
-				if (idx < 1) {
-					i = idx % 3;
-					i = i + 3;
-				} else {
-					i = idx % 3;
-					if (i == 0) {
-						i = 3;
-					}
-				}
-				$(".imgSlide>li:first-child").remove();
-				$(".imgSlide").append(
-						"<li><img src='./img/("
-								+ i + ").png' alt=''></li>");
-				$(".imgSlide").css({
-					"left" : "-1600px"
-				});
-				$(".imgSlide").stop().animate({
-					"left" : "-2400px"
-				}, "slow");
-				console.log(idx);
-			});
+	//슬라이드 스크립
+	var slideIndex = 1;
+/* 	showSlides(slideIndex); */
+	// HTML 로드가 끝난 후 동작
+	window.onload=function(){
+	  showSlides(slideIndex);
+
+	  // Auto Move Slide
+	  var sec = 2000;
+	  setInterval(function(){
+	    slideIndex++;
+	    showSlides(slideIndex);
+	  }, sec);
+	}
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+		}
+
+	function currentSlide(n) {
+  		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+  		var i;
+  		var slides = document.getElementsByClassName("mySlides");
+  		if (n > slides.length) {slideIndex = 1}
+  		if (n < 1) {slideIndex = slides.length}
+  		for (i = 0; i < slides.length; i++) {
+      		slides[i].style.display = "none";
+  		}
+  		slides[slideIndex-1].style.display = "block";
+	}
+	
 </script>
 </head>
 <body>
-
 	<nav>
 		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
 			<i class="fas fa-sign-in-alt"></i>
@@ -116,21 +95,35 @@
 		</div>
 	</nav>
 
-	<div class="banner">
-		<div class="slide">
-			<ul class="imgSlide">
-				<li><img src="./img/1.png" alt=""></li>
-				<li><img src="bannerImg.png" alt=""></li>
-				<li><img src="bannerImg.png" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-			</ul>
-			<div class="moveBtn">
-				<a href="#" class="pre"> < </a> <a href="#" class="next"> > </a>
-			</div>
+	<!-- 메인 슬라이드 -->
+	<div class="moveBtn" style="text-align:center;">
+			<a class="prev" onclick="plusSlides(-1)" style="text-align:center;"> < </a>
+			<a class="next"onclick="plusSlides(1)" style="text-align:center;"> > </a>
 		</div>
+	<div class="slideshow-container" style="text-align:center;" load="showSlides(1);">
+		<div class="mySlides fade2">
+		<img class="main_slideImg" 
+		src="https://user-images.githubusercontent.com/87636557/143765727-121efba0-4f07-4143-9a76-095e63b1043a.png"
+		style="width:300px; height:300px;">
+			<div class="text">Caption First</div>
+		</div>
+		<div class="mySlides fade2">
+		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143765723-08bcff86-e9b9-4039-82d2-6b56c03e99da.png"
+		style="width:300px; height:300px;">
+			<div class="text">Caption Two</div>
+		</div>
+		<div class="mySlides fade2">
+		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143765731-a421f347-b6c5-409f-a52e-d09cd658dcb7.png"
+		style="width:300px; height:300px;">
+			<div class="text">Caption Three</div>
+		</div>
+		
 	</div>
+
+
+<div style="text-align: center"></div>
+
+<!-- 메인 슬라이드 End -->
 
 	<footer>
 
