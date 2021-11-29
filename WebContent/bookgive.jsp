@@ -26,6 +26,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 
 
 <title>책, 도움</title>
@@ -36,7 +37,6 @@
 <script language="JavaScript">
 	//슬라이드 스크립
 	var slideIndex = 1;
-/* 	showSlides(slideIndex); */
 	// HTML 로드가 끝난 후 동작
 	window.onload=function(){
 	  showSlides(slideIndex);
@@ -59,13 +59,19 @@
 	function showSlides(n) {
   		var i;
   		var slides = document.getElementsByClassName("mySlides");
+  	  	var dots = document.getElementsByClassName("dot");
   		if (n > slides.length) {slideIndex = 1}
   		if (n < 1) {slideIndex = slides.length}
   		for (i = 0; i < slides.length; i++) {
       		slides[i].style.display = "none";
   		}
+  		for (i = 0; i < dots.length; i++) {
+  	      dots[i].className = dots[i].className.replace(" active", "");
+  	  	}
   		slides[slideIndex-1].style.display = "block";
+  		dots[slideIndex-1].className += " active";
 	}
+	
 	
 </script>
 </head>
@@ -96,28 +102,29 @@
 	</nav>
 
 	<!-- 메인 슬라이드 -->
-	<div class="moveBtn" style="text-align:center;">
-			<a class="prev" onclick="plusSlides(-1)" style="text-align:center;"> < </a>
-			<a class="next"onclick="plusSlides(1)" style="text-align:center;"> > </a>
-		</div>
-	<div class="slideshow-container" style="text-align:center;" load="showSlides(1);">
+	<div class="moveBtn2" style="text-align:center;">
+			<a class="prev" onclick="plusSlides(-1)"> < </a>
+			<a class="next"onclick="plusSlides(1)"> > </a>
+	</div>
+	<div class="slideshow-container" style="text-align:center;">
 		<div class="mySlides fade2">
 		<img class="main_slideImg" 
 		src="https://user-images.githubusercontent.com/87636557/143765727-121efba0-4f07-4143-9a76-095e63b1043a.png"
 		style="width:300px; height:300px;">
-			<div class="text">Caption First</div>
 		</div>
 		<div class="mySlides fade2">
-		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143765723-08bcff86-e9b9-4039-82d2-6b56c03e99da.png"
+		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143840855-d4631e72-cec1-4450-b757-12bfe401855c.png"
 		style="width:300px; height:300px;">
-			<div class="text">Caption Two</div>
 		</div>
 		<div class="mySlides fade2">
 		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143765731-a421f347-b6c5-409f-a52e-d09cd658dcb7.png"
 		style="width:300px; height:300px;">
-			<div class="text">Caption Three</div>
 		</div>
-		
+	</div>
+	<div style="text-align: center">
+		<span class="dot" onclick="currentSlide(1)"></span> 
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
 	</div>
 
 
