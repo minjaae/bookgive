@@ -109,16 +109,16 @@
 	<div class="slideshow-container" style="text-align:center;">
 		<div class="mySlides fade2">
 		<img class="main_slideImg" 
-		src="https://user-images.githubusercontent.com/87636557/143765727-121efba0-4f07-4143-9a76-095e63b1043a.png"
-		style="width:300px; height:300px;">
+		src="https://user-images.githubusercontent.com/87636557/143853597-f6c64971-302c-40d1-8c09-f5d5c5d1cd9e.jpg"
+		style="width:1000px; height:500px;">
 		</div>
 		<div class="mySlides fade2">
-		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143840855-d4631e72-cec1-4450-b757-12bfe401855c.png"
-		style="width:300px; height:300px;">
+		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143853639-b6b94356-b896-4a89-bed1-b07ac6e636e2.jpg"
+		style="width:1000px; height:500px;">
 		</div>
 		<div class="mySlides fade2">
-		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143765731-a421f347-b6c5-409f-a52e-d09cd658dcb7.png"
-		style="width:300px; height:300px;">
+		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143853614-e9fa8e0f-eb17-4be8-8f21-ca9b21fb871b.jpg"
+		style="width:1000px; height:500px;">
 		</div>
 	</div>
 	<div style="text-align: center">
