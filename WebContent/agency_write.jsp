@@ -68,7 +68,7 @@
 
 	<div>
 		<div>
-			<form method="post" action="">
+			<form name="postFrm" method="post" action="iboardPost" enctype="multipart/form-data">
 				<table
 					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
 					<thead>
@@ -80,18 +80,37 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" placeholder="책 제목을 입력해주세요." name="pdTitle"
+							<td><input type="text" placeholder="책 제목을 입력해주세요." name="title"
 								maxlength="50"
 								style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
 						</tr>
 						<tr>
-							<td><textarea placeholder="책의 상태를 자세히 작성해주세요." name="pdContent"
+							<td><textarea placeholder="책의 상태를 자세히 작성해주세요." name="content"
 									maxlength="2048"
 									style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 						</tr>
+						
 					</tbody>
+					
+			
+					<tr>
+				
 				</table>
-				<input class="btn-write" type="submit" value="글 쓰기" onClick="location.href='agency_donation.jsp'" >
+				
+				<table
+					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
+				<td>비밀 번호</td>
+				<td><input type="password" name="pass" size="15" maxlength="15"></td>
+			</tr>
+			<tr>
+     			<td>파일찾기</td> 
+     			<td><input type="file" name="filename" size="50" maxlength="50"></td>
+    		</tr>
+    		</table>
+    		
+				
+				<input type="hidden" name="userID" value="<%=id%>">
+				<input class="btn-write" type="submit" value="등록">
 			</form>
 		</div>
 	</div>
