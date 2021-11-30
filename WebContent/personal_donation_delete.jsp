@@ -80,7 +80,7 @@
 				String dbPass = bean.getPWD();
 				if (inPass.equals(dbPass)) {
 				PDM.deleteBoard(personal_donation_id);
-				String url = "list.jsp?nowPage=" + nowPage;
+				String url = "personal_donation.jsp?nowPage=" + nowPage;
 				response.sendRedirect(url);
 			} else {
 		%>
@@ -93,9 +93,9 @@
 %>
 <script type="text/javascript">
 	function check() {
-		if (document.delFrm.pass.value == "") {
+		if (document.delFrm.pwd.value == "") {
 			alert("패스워드를 입력하세요.");
-			document.delFrm.pass.focus();
+			document.delFrm.pwd.focus();
 			return false;
 		}
 		document.delFrm.submit();
