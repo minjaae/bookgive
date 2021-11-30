@@ -59,24 +59,48 @@
 </script>
 </head>
 <body>
+   
+	<nav>
+		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
+			<i class="fas fa-sign-in-alt"></i>
+		</div>
+		<%
+			if(id != null){
+		%>
+		<div align="right"> 
+        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
+  		<%
+  			}
+		%>
+		<div class="mainLogo container">
+			<div>
+				<a href="bookgive.jsp"><p>책,</p>도움</a>
+			</div>
+		</div>
+		<div class="menu container">
+			<ul class="nav">
+				<li><a href="bookgive.jsp">Home</a></li>
+				<li><a href="agency_donation.jsp">기관기부</a></li>
+				<li><a href="personal_donation.jsp">개인기부</a></li>
+				<li><a href="about.jsp">About Us</a></li>
+				<li><a href="contact.jsp">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div>
-		<div class="container">
-			
-			
-	<table>
+		<div class="container">		
+	<table align = "center">
 	
 	 <tr> 
-  <td align="center" > 아이디 </td>
+  <td align="center" > 아이디: </td>
   <td ><%=userID%></td>
   </tr>
   <tr>
-  <td align="center" > 작성일 </td>
+  <td align="center" > 작성일: </td>
   <td ><%=created_at%></td>
  </tr>
-	
-	
 	<tr> 
-    <td align="center" > 제 목</td>
+    <td align="center" > 제 목: </td>
     <td><%=title%></td>
    </tr>
    <tr> 

@@ -181,7 +181,6 @@ public class PersonalDonationMgrPool extends HttpServlet {
          
          sql = "insert personal_donation(userID, title,pwd,content,created_at, donation_state, book_status,count,filename,filesize)";
          sql += "values( ?, ?, ?, ?,  now(), false, ?, 0, ?, ?)";
-         pstmt = con.prepareStatement(sql);
      	 pstmt.setString(1, multi.getParameter("userID"));
          pstmt.setString(2, multi.getParameter("title"));
          pstmt.setString(3, multi.getParameter("pwd"));
@@ -240,7 +239,7 @@ public class PersonalDonationMgrPool extends HttpServlet {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update personal_donation_id set count=count+1 where personal_donation_id=?";
+         sql = "update personal_donation set count=count+1 where personal_donation_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setInt(1, personal_donation_id);
          pstmt.executeUpdate();
@@ -285,11 +284,10 @@ public class PersonalDonationMgrPool extends HttpServlet {
    public void updateBoard(PersonalDonationBean bean) {
       Connection con = null;
       PreparedStatement pstmt = null;
-      MultipartRequest multi = null;
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update personal_donation set userID=?,title=?,content=?, where personal_donation_id=?";
+         sql = "update personal_donation set userID=?,title=?,content=? where personal_donation_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, bean.getUserID());
          pstmt.setString(2, bean.getTitle());

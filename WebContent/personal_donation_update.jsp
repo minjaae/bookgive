@@ -78,7 +78,7 @@
 			</ul>
 		</div>
 	</nav>
-	<div>
+	<div align = "center">
 		<div class="container">
 			<table width="600" cellpadding="3">
   <tr>
@@ -89,7 +89,7 @@
 <table width="600" cellpadding="7">
  <tr>
   <td>
-   <table>
+   <table >
 	<tr>
      <td>제 목</td>
      <td width="20%">
