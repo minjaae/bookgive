@@ -7,10 +7,14 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspWriter;
@@ -19,11 +23,11 @@ import javax.servlet.jsp.PageContext;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class PersonalDonationMgrPool {
+public class PersonalDonationMgrPool extends HttpServlet {
    
    private DBConnectionMgr pool = null;
-   private static final String ENCTYPE = "EUC-KR";
-   private static final String SAVEFOLDER = null;
+   private static final String ENCTYPE = "UTF-8";
+   private static final String  SAVEFOLDER = "C:/Jsp";
    private static int MAXSIZE = 5*1024*1024;
    
    public PersonalDonationMgrPool() {
@@ -67,7 +71,6 @@ public class PersonalDonationMgrPool {
               bean.setTitle (rs.getString("title"));
               bean.setContent (rs.getString("content"));
               bean.setCreatedAt (rs.getDate("created_at"));
-              bean.setModifiedAt (rs.getDate("modified_at"));
               bean.setDonationState (rs.getBoolean("donation_state"));
               bean.setBookStatus (rs.getString("book_status"));
               bean.setFileName (rs.getString("filename"));
@@ -102,7 +105,6 @@ public class PersonalDonationMgrPool {
  			 bean.setTitle (rs.getString("title"));
  			 bean.setContent (rs.getString("content"));
  			 bean.setCreatedAt (rs.getDate("created_at"));
- 			 bean.setModifiedAt (rs.getDate("modified_at"));
  			 bean.setDonationState (rs.getBoolean("donation_state"));
  			 bean.setBookStatus (rs.getString("book_status"));
  			vlist.addElement(bean);
@@ -145,6 +147,7 @@ public class PersonalDonationMgrPool {
    }
    
    
+   
    //게시물 입력
    public void insertBoard(HttpServletRequest req) {
       Connection con = null;
@@ -154,6 +157,7 @@ public class PersonalDonationMgrPool {
       MultipartRequest multi = null;
       int filesize = 0;
       String filename = null;
+      
       try {
          con = pool.getConnection();
          sql = "select max(personal_donation_id) from personal_donation";
@@ -173,18 +177,17 @@ public class PersonalDonationMgrPool {
             filesize = (int) multi.getFile("filename").length();
          }
          String content = multi.getParameter("content");
-        
-            content = PersonalUtilMgr.replace(content, "<", "&lt;");
+    
          
-         sql = "insert personal_donation(userID,title,pwd,content,created_at,donation_state, book_status,count,filename,filesize)";
-         sql += "values(?, ?, ?, ?,  now(), false, ?, 0, ?, ?)";
+         sql = "insert personal_donation(userID, title,pwd,content,created_at, donation_state, book_status,count,filename,filesize)";
+         sql += "values( ?, ?, ?, ?,  now(), false, ?, 0, ?, ?)";
          pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, multi.getParameter("userID"));
+     	 pstmt.setString(1, multi.getParameter("userID"));
          pstmt.setString(2, multi.getParameter("title"));
          pstmt.setString(3, multi.getParameter("pwd"));
          pstmt.setString(4, content);
          pstmt.setString(5, multi.getParameter("book_status"));
-         pstmt.setString(6, filename);
+         pstmt.setString(6, multi.getParameter("filename"));
          pstmt.setInt(7, filesize);
          pstmt.executeUpdate();
       } catch (Exception e) {
@@ -216,7 +219,6 @@ public class PersonalDonationMgrPool {
             bean.setTitle(rs.getString("title"));
             bean.setContent(rs.getString("content"));
             bean.setCreatedAt(rs.getDate("created_at"));
-            bean.setModifiedAt(rs.getDate("modified_at"));
             bean.setDonationState(rs.getBoolean("donation_state"));
             bean.setBookStatus(rs.getString("book_status"));
             bean.setCount(rs.getInt("count"));
@@ -287,7 +289,7 @@ public class PersonalDonationMgrPool {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update personal_donation set userID=?,title=?,content=?, modified_at = NOW() where personal_donation_id=?";
+         sql = "update personal_donation set userID=?,title=?,content=?, where personal_donation_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, bean.getUserID());
          pstmt.setString(2, bean.getTitle());

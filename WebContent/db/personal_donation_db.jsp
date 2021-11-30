@@ -14,11 +14,14 @@
    <td><strong>personalDonationId</strong></td>
    <td><strong>userID</strong></td>
    <td><strong>title</strong></td>
+   <td><strong>PWD</strong></td>
    <td><strong>content</strong></td>
    <td><strong>createAt</strong></td>
-   <td><strong>modifiedAt</strong></td>
    <td><strong>donationState</strong></td>
    <td><strong>bookStatus</strong></td>
+   <td><strong>count</strong></td>
+   <td><strong>filename</strong></td>
+   <td><strong>FileSize</strong></td>
 </tr>
 <%
 	Vector<PersonalDonationBean> vlist = regMgr.getRegisterList();
@@ -30,11 +33,15 @@
 	<td><%=pdBean.getPersonalDonationId()%></td>
 	<td><%=pdBean.getUserID()%></td>
 	<td><%=pdBean.getTitle()%></td>
+	<td><%=pdBean.getPWD()%></td>
 	<td><%=pdBean.getContent()%></td>
 	<td><%=pdBean.getCreatedAt()%></td>
-	<td><%=pdBean.getModifiedAt()%></td>
 	<td><%=pdBean.getDonationState()%></td>
 	<td><%=pdBean.getBookStatus()%></td>
+	<td><%=pdBean.getCount()%></td>
+	<td><%=pdBean.getFileName()%></td>
+	<td><%=pdBean.getFileSize()%></td>
+	
 </tr>
 <%
    }

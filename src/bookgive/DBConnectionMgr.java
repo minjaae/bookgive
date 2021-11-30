@@ -38,7 +38,7 @@ public class DBConnectionMgr {
     private String _driver = "org.gjt.mm.mysql.Driver",
     _url = "jdbc:mysql://127.0.0.1:3306/bookgivedb?user=root&password=1234"
     		+ "&useUnicode=true&characterEncoding=EUC-KR"
-    		+ "&autoReconnect=true&failOverReadOnly=false&maxReconnects=10",
+    		+ "&autoReconnect=true&useSSL=false&failOverReadOnly=false&maxReconnects=10",
     _user = "root",
     _password = "1234";
     private boolean _traceOn = false;

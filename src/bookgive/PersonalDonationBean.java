@@ -9,7 +9,6 @@ public class PersonalDonationBean{
    private String title;
    private String content;
    private Date created_at;
-   private Date modified_at;
    private boolean donation_state;
    private String book_status;
    private String filename;
@@ -33,9 +32,6 @@ public class PersonalDonationBean{
    }
    public void setCreatedAt(Date created_at) {
       this.created_at = created_at;
-   }
-   public void setModifiedAt(Date modified_at) {
-      this.modified_at = modified_at;
    }
    public void setDonationState(boolean donation_state) {
       this.donation_state = donation_state;
@@ -71,9 +67,7 @@ public class PersonalDonationBean{
    public Date getCreatedAt() {
       return created_at;
    }
-   public Date getModifiedAt() {
-      return modified_at;
-   }
+ 
    public boolean getDonationState() {
       return donation_state;
    }

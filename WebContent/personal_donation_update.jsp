@@ -6,22 +6,14 @@
 <jsp:useBean id="PD" class="bookgive.PersonalDonationMgrPool" />	
 
 <%
-	request.setCharacterEncoding("EUC-KR");
-	String id = (String) session.getAttribute("idKey");
-	int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
-	String nowPage = request.getParameter("nowPage");
-	String keyField = request.getParameter("keyField");
-	String keyWord = request.getParameter("keyWord");
-	PD.upCount(personal_donation_id);//조회수 증가
-	PersonalDonationBean bean = PD.getBoard(personal_donation_id);//게시물 가져오기
-	String userID = bean.getUserID();
-	String title = bean.getTitle();
-	Date created_at = bean.getCreatedAt();
-	String content = bean.getContent();
-	String filename = bean.getFileName();
-	int filesize = bean.getFileSize();
-	int count = bean.getCount();
-	session.setAttribute("bean", bean);//게시물을 세션에 저장
+	  request.setCharacterEncoding("EUC-KR");
+	  String id = (String) session.getAttribute("idKey");
+	  int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
+	  String nowPage = request.getParameter("nowPage");
+	  PersonalDonationBean bean = (PersonalDonationBean)session.getAttribute("bean");
+	  String title = bean.getTitle();
+	  String userID = bean.getUserID(); 
+	  String content = bean.getContent(); 
 %>
 <html>
 
@@ -49,9 +41,9 @@
 <title>개인 기부 게시판</title>
 <script>
 	function check() {
-	   if (document.updateFrm.pass.value == "") {
+	   if (document.updateFrm.pwd.value == "") {
 		 alert("수정을 위해 패스워드를 입력하세요.");
-		 document.updateFrm.pass.focus();
+		 document.updateFrm.pwd.focus();
 		 return false;
 		 }
 	   document.updateFrm.submit();
@@ -86,41 +78,57 @@
 			</ul>
 		</div>
 	</nav>
-	<div align="center"><br/><br/>
-		<table width="600" cellpadding="3">
-  			<tr>
-   				<td bgcolor="#FF9018"  height="21" align="center">수정하기</td>
-  			</tr>
-		</table>
-		<form name="updateFrm" method="post" action="PDUpdate">
-			<table width="600" cellpadding="7">
- 				<tr>
-  					<td>
-   						<table>
-    						<tr>
-     							<td width="20%">성 명</td>
-     							<td width="80%">
-	  								<input name="name" value="<%=userID%>" size="30" maxlength="20">
-	 							</td>
-							</tr>
-							<tr>
-     							<td>제 목</td>
-     							<td>
-	  								<input name="subject" size="50" value="<%=title%>" maxlength="50">
-	 							</td>
-    						<tr>
-     							<td>내 용</td>
-     							<td>
-	  								<textarea name="content" rows="10" cols="50"><%=content%></textarea>
-	 							</td>
-    						</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</form>
+	<div>
+		<div class="container">
+			<table width="600" cellpadding="3">
+  <tr>
+   <td bgcolor="#FF9018"  height="21" align="center">수정하기</td>
+  </tr>
+</table>
+<form name="updateFrm" method="post" action="PDUpdate">
+<table width="600" cellpadding="7">
+ <tr>
+  <td>
+   <table>
+	<tr>
+     <td>제 목</td>
+     <td width="20%">
+	  <input name="title" size="50" value="<%=title%>" maxlength="50">
+	 </td>
+    <tr>
+     <td  width="80%">내 용</td>
+     <td>
+	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
+	 </td>
+    </tr>
+	<tr>
+     <td>비밀 번호</td> 
+     <td><input type="password" name="pwd" size="15" maxlength="15">
+      수정 시에는 비밀번호가 필요합니다.</td>
+    </tr>
+	<tr>
+     <td colspan="2" height="5"><hr/></td>
+    </tr>
+	<tr>
+     <td colspan="2">
+	  <input type="button" value="수정완료" onClick="check()">
+      <input type="reset" value="다시수정"> 
+      <input type="button" value="뒤로" onClick="history.go(-1)">
+	 </td>
+    </tr> 
+   </table>
+  </td>
+ </tr>
+</table>
+<input type="hidden" name="userID" value="<%=userID%>" size="30" maxlength="20">
+ <input type="hidden" name="nowPage" value="<%=nowPage %>">
+ <input type='hidden' name="personal_donation_id" value="<%=personal_donation_id%>">
+</form> 
+
+		</div>
 	</div>
 	<footer>
+
 		<div class="container">
 			<div class="row mt-5 pt-5 align-items-center">
 				<div class="col-md-6 text-md-left">
@@ -135,6 +143,7 @@
 				</div>
 			</div>
 		</div>
+
 	</footer>
 </body>
 </html>

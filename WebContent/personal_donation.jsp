@@ -92,8 +92,8 @@ function block(value){
     document.readFrm.submit();
 } 
 
-function read(personal_donation_id){
-   document.readFrm.num.value=num;
+function read(num){
+   document.readFrm.personal_donation_id.value=num;
    document.readFrm.action="personal_donation_read.jsp";
    document.readFrm.submit();
 }
@@ -164,11 +164,9 @@ function check() {
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">번호</th>
                   <th
-                     style="background-color: #FAFAF0; text-align: center; width: 20%">제목</th>
+                     style="background-color: #FAFAF0; text-align: center; width: 40%">제목</th>
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
-                  <th
-                     style="background-color: #FAFAF0; text-align: center; width: 20%">조회수</th>
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">거래상태</th>   
                </tr>
@@ -178,7 +176,7 @@ function check() {
                         if (i == listSize) break;
                         PersonalDonationBean bean = vlist.get(i);
                         int personal_donation_id = bean.getPersonalDonationId();
-                        String userids = bean.getUserID();
+                        String userid = bean.getUserID();
                         String title = bean.getTitle();
                         int count = bean.getCount();
                         boolean donation_state = bean.getDonationState();
@@ -194,10 +192,9 @@ function check() {
                            <%=totalRecord-((nowPage-1)*numPerPage)-i%>
                         </td>
                         <td>
-                          <a href="javascript:read('<%=personal_donation_id%>')"><%=title%></a>
+                          <a href="javascript:read('<%=personal_donation_id%>')" style="color: #000000; "><%=title%></a>
                         </td>
-                        <td align="center"><%=userids%></td>
-                        <td align="center"><%=count%></td>
+                        <td align="center"><%=userid%></td>
                         <td align="center"><%=state%></td>
                      </tr>
                      </tbody>
@@ -207,7 +204,6 @@ function check() {
       </div>
 
    </div>
-   
    
    <footer>
 
@@ -236,7 +232,7 @@ function check() {
       </td>
          <td align="right">
             <a href="personal_donation_write.jsp">[글쓰기]</a> 
-            <a href="javascript:list()">[처음으로]</a>
+            <a href="personal_donation.jsp">[처음으로]</a>
          </td>
    </tr>
 </table>
@@ -269,7 +265,6 @@ function check() {
       <input type="hidden" name="keyWord" value="<%=keyWord%>">
    </form>
    
-  	<%=request.getParameter("personal_donation_id") %>
       <div class="container">
          <div class="row mt-5 pt-5 align-items-center">
             <div class="col-md-6 text-md-left">

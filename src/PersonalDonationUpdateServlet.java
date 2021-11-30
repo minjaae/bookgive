@@ -1,4 +1,4 @@
-package bookgive;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,16 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import bookgive.PersonalDonationBean;
+import bookgive.PersonalDonationMgrPool;
 
-@WebServlet("/bookgive/PDUpdate")
+
+@WebServlet("/PDUpdate")
 
 public class PersonalDonationUpdateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=EUC-KR");
 
 		HttpSession session = request.getSession();

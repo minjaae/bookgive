@@ -59,94 +59,69 @@
 </script>
 </head>
 <body>
-	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
-		</div>
-		<%
-			if(id != null){
-		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
-		%>
-		<div class="mainLogo container">
-			<div>
-				<a href="bookgive.jsp"><p>책,</p>도움</a>
-			</div>
-		</div>
-		<div class="menu container">
-			<ul class="nav">
-				<li><a href="bookgive.jsp">Home</a></li>
-				<li><a href="agency_donation.jsp">기관기부</a></li>
-				<li><a href="personal_donation.jsp">개인기부</a></li>
-				<li><a href="about.jsp">About Us</a></li>
-				<li><a href="contact.jsp">Contact</a></li>
-			</ul>
-		</div>
-	</nav>
 	<div>
-		<div class="container">	
-		<table align="center" width="600" cellspacing="3">
- 			<tr>
-  				<td bgcolor="#9CA2EE" height="25" align="center">글읽기</td>
- 			</tr>
- 			<tr>
-  				<td colspan="2">
-   					<table cellpadding="3" cellspacing="0" width="100%"> 
-    					<tr> 
-  							<td align="center" width="10%"> 아이디 </td>
-  							<td bgcolor="#FFFFE8"><%=personal_donation_id%></td>
-  							<td align="center" width="10%"> 작성날짜 </td>
-  							<td bgcolor="#FFFFE8"><%=created_at%></td>
- 						</tr>
- 						<tr> 
-    						<td align="center" > 제 목 </td>
-    						<td bgcolor="#FFFFE8" colspan="3"><%=title%></td>
-   						</tr>
-   						<tr> 
-     						<td align="center" >첨부파일</td>
-     						<td bgcolor="#FFFFE8" colspan="3">
-     							<% if( filename !=null && !filename.equals("")) {%>
-  								<a href="javascript:down('<%=filename%>')"><%=filename%></a>
-  		 						&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
-  		 						<%} else{%> 등록된 파일이 없습니다.<%}%>
-     						</td>
-   						</tr>
-   						<tr> 
-    						<td colspan="4"><br/><pre><%=content%></pre><br/></td>
-   						</tr>
-   						<tr>
-    						<td colspan="4" align="right">
-    							  조회수  <%=count%>
-    						</td>
-   						</tr>
-   				</table>
-  			</td>
- 		</tr>
- 		<tr>
-  			<td align="center" colspan="2"> 
- 				[ <a href="javascript:list()" >리스트</a> | 
- 				<a href="update.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" >수 정</a> |
- 				<a href="delete.jsp?nowPage=<%=nowPage%>&num=<%=personal_donation_id%>">삭 제</a> ]<br/>
-  			</td>
- 		</tr>
-</table>
-</div>
-</div>
-<form name="downFrm" action="download.jsp" method="post">
+		<div class="container">
+			
+			
+	<table>
+	
+	 <tr> 
+  <td align="center" > 아이디 </td>
+  <td ><%=userID%></td>
+  </tr>
+  <tr>
+  <td align="center" > 작성일 </td>
+  <td ><%=created_at%></td>
+ </tr>
+	
+	
+	<tr> 
+    <td align="center" > 제 목</td>
+    <td><%=title%></td>
+   </tr>
+   <tr> 
+     <td align="center">첨부파일</td>
+     <td>
+     <% if( filename !=null && !filename.equals("")) {%>
+  		<a href="javascript:down('<%=filename%>')"><%=filename%></a>
+  		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
+  		 <%} else{%> 등록된 파일이 없습니다.<%}%>
+     </td>
+   </tr>
+   
+   
+   <tr> 
+    <td><br/><pre><%=content%></pre><br/></td>
+   </tr>
+  
+	<tr>
+  <td align="center" colspan="2"> 
+ <hr/>
+ [ <a href="javascript:list()" >리스트</a> | 
+ <a href="personal_donation_update.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" >수 정</a> |
+ <a href="personal_donation_delete.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>">삭 제</a> ]<br/>
+  </td>
+ </tr>
+	
+	</table>
+			
+			<form name="downFrm" action="personal_donation_download.jsp" method="post">
 	<input type="hidden" name="filename">
 </form>
 
-<form name="listFrm" method="post" action="personal_donation_.jsp">
+<form name="listFrm" method="post" action="personal_donation.jsp">
 	<input type="hidden" name="nowPage" value="<%=nowPage%>">
 	<%if(!(keyWord==null || keyWord.equals(""))){ %>
 	<input type="hidden" name="keyField" value="<%=keyField%>">
 	<input type="hidden" name="keyWord" value="<%=keyWord%>">
 	<%}%>
 </form>
+			
+			
+		</div>
+	</div>
 	<footer>
+
 		<div class="container">
 			<div class="row mt-5 pt-5 align-items-center">
 				<div class="col-md-6 text-md-left">

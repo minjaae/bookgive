@@ -69,5 +69,23 @@
 		<url-pattern>/iboardReply</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>PersonalDonationWriteServlet</servlet-name>
+		<servlet-class>PersonalDonationWriteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PersonalDonationWriteServlet</servlet-name>
+		<url-pattern>/PDWrite</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PersonalDonationUpdateServlet</servlet-name>
+		<servlet-class>PersonalDonationUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PersonalDonationUpdateServlet</servlet-name>
+		<url-pattern>/PDUpdate</url-pattern>
+	</servlet-mapping>
+	
+	
 	
 </web-app>
