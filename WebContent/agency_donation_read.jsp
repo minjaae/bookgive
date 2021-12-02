@@ -124,12 +124,12 @@
    </tr>
   
 	<tr>
-  <td align="center" colspan="2"> 
+  <td align="center" colspan="2" > 
  <hr/>
- [ <a href="javascript:list()" >리스트</a> | 
- <a href="agency_donation_upadte.jsp?nowPage=<%=nowPage%>&num=<%=num%>" >수 정</a> |
- <a href="agency_donation_reply.jsp?nowPage=<%=nowPage%>" >답 변</a> |
- <a href="agency_donation_delete.jsp?nowPage=<%=nowPage%>&num=<%=num%>">삭 제</a> ]<br/>
+ [ <a href="javascript:list()" style="color: #000000;" >리스트</a> | 
+ <a href="agency_donation_upadte.jsp?nowPage=<%=nowPage%>&num=<%=num%>" style="color: #000000;" >수 정</a> |
+ <a href="agency_donation_reply.jsp?nowPage=<%=nowPage%>" style="color: #000000;" >답 변</a> |
+ <a href="agency_donation_delete.jsp?nowPage=<%=nowPage%>&num=<%=num%>" style="color: #000000;">삭 제</a> ]<br/>
   </td>
  </tr>
 	

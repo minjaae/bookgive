@@ -48,14 +48,15 @@ public class PersonalDonationMgrPool extends HttpServlet {
       Vector<PersonalDonationBean> vlist = new Vector<PersonalDonationBean>();
       try {
          con = pool.getConnection();
+         
          if (keyWord.equals("null") || keyWord.equals("")) {
-            sql = "select * from personal_donation order by personal_donation_id desc limit ?,?";
+            sql = "select * from personal_donation order by ref desc, pos limit ?, ?";
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, start);
             pstmt.setInt(2, end);
          } else {
             sql = "select * from personal_donation where " + keyField + " like ? ";
-            sql += "order by personal_donation_id desc limit ? , ?";
+            sql += "order by ref desc, pos limit ?, ?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, "%" + keyWord + "%");
             pstmt.setInt(2, start);
@@ -64,18 +65,21 @@ public class PersonalDonationMgrPool extends HttpServlet {
          
          rs = pstmt.executeQuery();
          while (rs.next()) {
-            PersonalDonationBean bean = new PersonalDonationBean();
+        	 PersonalDonationBean bean = new PersonalDonationBean();
              bean.setPersonalDonationId (rs.getInt("personal_donation_id"));
              bean.setUserID (rs.getString("userID"));
              bean.setPWD (rs.getString("pwd"));
-              bean.setTitle (rs.getString("title"));
-              bean.setContent (rs.getString("content"));
-              bean.setCreatedAt (rs.getDate("created_at"));
-              bean.setDonationState (rs.getBoolean("donation_state"));
-              bean.setBookStatus (rs.getString("book_status"));
-              bean.setFileName (rs.getString("filename"));
-              bean.setFileSize (rs.getInt("filesize"));
-              bean.setCount (rs.getInt("count"));
+             bean.setTitle (rs.getString("title"));
+             bean.setPos(rs.getInt("pos"));
+             bean.setRef(rs.getInt("ref"));
+             bean.setDepth(rs.getInt("depth"));
+             bean.setContent (rs.getString("content"));
+             bean.setCreatedAt (rs.getDate("created_at"));
+             bean.setDonationState (rs.getBoolean("donation_state"));
+             bean.setBookStatus (rs.getString("book_status"));
+             bean.setFileName (rs.getString("filename"));
+             bean.setFileSize (rs.getInt("filesize"));
+             bean.setCount (rs.getInt("count"));
               
              vlist.addElement(bean);
          }
@@ -103,6 +107,9 @@ public class PersonalDonationMgrPool extends HttpServlet {
              bean.setPersonalDonationId (rs.getInt("personal_donation_id"));
 			 bean.setUserID (rs.getString("userID"));
  			 bean.setTitle (rs.getString("title"));
+ 			 bean.setPos(rs.getInt("pos"));
+ 			 bean.setRef(rs.getInt("ref"));
+ 			 bean.setDepth(rs.getInt("depth"));
  			 bean.setContent (rs.getString("content"));
  			 bean.setCreatedAt (rs.getDate("created_at"));
  			 bean.setDonationState (rs.getBoolean("donation_state"));
@@ -150,51 +157,51 @@ public class PersonalDonationMgrPool extends HttpServlet {
    
    //게시물 입력
    public void insertBoard(HttpServletRequest req) {
-      Connection con = null;
-      PreparedStatement pstmt = null;
-      ResultSet rs = null;
-      String sql = null;
-      MultipartRequest multi = null;
-      int filesize = 0;
-      String filename = null;
-      
-      try {
-         con = pool.getConnection();
-         sql = "select max(personal_donation_id) from personal_donation";
-         pstmt = con.prepareStatement(sql);
-         rs = pstmt.executeQuery();
-         int ref = 1;
-         if (rs.next())
-            ref = rs.getInt(1) + 1;
-         File file = new File(SAVEFOLDER);
-         if (!file.exists())
-            file.mkdirs();
-         multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE, ENCTYPE,
-               new DefaultFileRenamePolicy());
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		MultipartRequest multi = null;
+		int filesize = 0;
+		String filename = null;
+		try {
+			con = pool.getConnection();
+			sql = "select max(personal_donation_id) from personal_donation";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			int ref = 1;
+			if (rs.next())
+				ref = rs.getInt(1) + 1;
+			File file = new File(SAVEFOLDER);
+			if (!file.exists())
+				file.mkdirs();
+			multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE, ENCTYPE,
+					new DefaultFileRenamePolicy());
 
-         if (multi.getFilesystemName("filename") != null) {
-            filename = multi.getFilesystemName("filename");
-            filesize = (int) multi.getFile("filename").length();
-         }
-         String content = multi.getParameter("content");
-    
-         
-         sql = "insert personal_donation(userID, title,pwd,content,created_at, donation_state, book_status,count,filename,filesize)";
-         sql += "values( ?, ?, ?, ?,  now(), false, ?, 0, ?, ?)";
-     	 pstmt.setString(1, multi.getParameter("userID"));
-         pstmt.setString(2, multi.getParameter("title"));
-         pstmt.setString(3, multi.getParameter("pwd"));
-         pstmt.setString(4, content);
-         pstmt.setString(5, multi.getParameter("book_status"));
-         pstmt.setString(6, multi.getParameter("filename"));
-         pstmt.setInt(7, filesize);
-         pstmt.executeUpdate();
-      } catch (Exception e) {
-         e.printStackTrace();
-      } finally {
-         pool.freeConnection(con, pstmt, rs);
-      }
-   }
+			if (multi.getFilesystemName("filename") != null) {
+				filename = multi.getFilesystemName("filename");
+				filesize = (int) multi.getFile("filename").length();
+			}
+			String content = multi.getParameter("content");
+				content = PersonalUtilMgr.replace(content, "<", "&lt;");
+			sql = "insert personal_donation(userID,content,title,ref,pos,depth,created_at,donation_state, book_status,pwd,count,filename,filesize)";
+			sql += "values(?, ?, ?, ?, 0, 0, now(), false, ?, ?, 0, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, multi.getParameter("userID"));
+			pstmt.setString(2, content);
+			pstmt.setString(3, multi.getParameter("title"));
+			pstmt.setInt(4, ref);
+			pstmt.setString(5, multi.getParameter("book_status"));
+			pstmt.setString(6, multi.getParameter("pwd"));
+			pstmt.setString(7, filename);
+			pstmt.setInt(8, filesize);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+	}
 
    
 //게시물 리턴   
@@ -217,6 +224,9 @@ public class PersonalDonationMgrPool extends HttpServlet {
             bean.setPWD(rs.getString("pwd"));
             bean.setTitle(rs.getString("title"));
             bean.setContent(rs.getString("content"));
+            bean.setPos(rs.getInt("pos"));
+            bean.setRef(rs.getInt("ref"));
+            bean.setDepth(rs.getInt("depth"));
             bean.setCreatedAt(rs.getDate("created_at"));
             bean.setDonationState(rs.getBoolean("donation_state"));
             bean.setBookStatus(rs.getString("book_status"));
@@ -279,6 +289,7 @@ public class PersonalDonationMgrPool extends HttpServlet {
          pool.freeConnection(con, pstmt, rs);
       }
    }
+  
    
    //게시물 수정
    public void updateBoard(PersonalDonationBean bean) {
@@ -300,6 +311,52 @@ public class PersonalDonationMgrPool extends HttpServlet {
          pool.freeConnection(con, pstmt);
       }
    }
+   
+   public void replyBoard(PersonalDonationBean bean) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "insert personal_donation (userID,content,title,ref,pos,depth,created_at,pwd,count)";
+			sql += "values(?,?,?,?,?,?,now(),?,0)";
+			int depth = bean.getDepth() + 1;
+			int pos = bean.getPos() + 1;
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bean.getUserID());
+			pstmt.setString(2, bean.getContent());
+			pstmt.setString(3, bean.getTitle());
+			pstmt.setInt(4, bean.getRef());
+			pstmt.setInt(5, pos);
+			pstmt.setInt(6, depth);
+			pstmt.setString(7, bean.getPWD());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+	}
+   
+   
+   public void replyUpBoard(int ref, int pos) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "update personal_donation set pos = pos + 1 where ref=? and pos > ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ref);
+			pstmt.setInt(2, pos);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+   }
+   
    
    //첨부파일 다운로드
    public void downLoad(HttpServletRequest req, HttpServletResponse res,

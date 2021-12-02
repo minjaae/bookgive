@@ -80,6 +80,7 @@
 								기부 게시판 책 등록</th>
 						</tr>
 						<tr>
+						
 							<td>
 							<input type="text" placeholder="책 제목을 입력해주세요." name="title" maxlength="30"
 								style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
@@ -109,12 +110,8 @@
 						 		<input type="button" value="리스트" onClick="javascript:location.href='personal_donation.jsp'">
 							</td>
 						</tr>
-					
 					</tbody>
-					
-			
 					<tr>
-				
 				</table>
 				<input type="hidden" name="userID" value="<%=id%>">
 			</form>

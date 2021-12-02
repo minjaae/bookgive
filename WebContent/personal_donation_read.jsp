@@ -89,45 +89,43 @@
 	</nav>
 	<div>
 		<div class="container">		
-	<table align = "center">
 	
-	 <tr> 
-  <td align="center" > 아이디: </td>
-  <td ><%=userID%></td>
-  </tr>
-  <tr>
-  <td align="center" > 작성일: </td>
-  <td ><%=created_at%></td>
- </tr>
-	<tr> 
-    <td align="center" > 제 목: </td>
-    <td><%=title%></td>
-   </tr>
-   <tr> 
-     <td align="center">첨부파일</td>
-     <td>
-     <% if( filename !=null && !filename.equals("")) {%>
-  		<a href="javascript:down('<%=filename%>')"><%=filename%></a>
-  		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
-  		 <%} else{%> 등록된 파일이 없습니다.<%}%>
-     </td>
-   </tr>
-   
-   
-   <tr> 
-    <td><br/><pre><%=content%></pre><br/></td>
-   </tr>
+			<table align="center">
+				<tr> 
+		  			<td align="center" > 아이디: </td>
+		  			<td ><%=userID%></td>
+		  		</tr>
+		  		<tr>
+				    <td align="center" > 작성일: </td>
+				    <td ><%=created_at%></td>
+		 		</tr>
+				<tr> 
+			    	<td align="center" > 제 목: </td>
+			    	<td><%=title%></td>
+			   </tr>
+			   <tr> 
+			     	<td align="center">첨부파일</td>
+			     	<td>
+			     		<% if( filename !=null && !filename.equals("")) {%>
+			  			<a href="javascript:down('<%=filename%>')"><%=filename%></a>
+			  			 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
+			  			<%} else{%> 등록된 파일이 없습니다.<%}%>
+			     	</td>
+			   </tr>
+			   <tr> 
+			    	<td align ="center"><br/><pre><%=content%></pre><br/></td>
+			   </tr>
   
-	<tr>
-  <td align="center" colspan="2"> 
- <hr/>
- [ <a href="javascript:list()" >리스트</a> | 
- <a href="personal_donation_update.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" >수 정</a> |
- <a href="personal_donation_delete.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>">삭 제</a> ]<br/>
-  </td>
- </tr>
-	
-	</table>
+				<tr>
+			  	<td align="center" colspan="2"> 
+				 <hr/>
+					 [ <a href="javascript:list()" style="color: #000000;" >리스트</a> | 
+					 <a href="personal_donation_update.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" style="color: #000000;" >수 정</a> |
+					 <a href="personal_donation_reply.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" style="color: #000000;" >답변</a> |
+					 <a href="personal_donation_delete.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>" style="color: #000000;">삭 제</a> ]<br/>
+				</td>
+			 </tr>
+		</table>
 			
 			<form name="downFrm" action="personal_donation_download.jsp" method="post">
 	<input type="hidden" name="filename">

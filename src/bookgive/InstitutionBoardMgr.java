@@ -85,10 +85,10 @@ public class InstitutionBoardMgr {
 		try {
 			con = pool.getConnection();
 			if (keyWord.equals("null") || keyWord.equals("")) {
-				sql = "select count(num) from institution_donation";
+				sql = "select count(institution_donation_id) from institution_donation";
 				pstmt = con.prepareStatement(sql);
 			} else {
-				sql = "select count(num) from  institution_donation where " + keyField + " like ? ";
+				sql = "select count(institution_donation_id from  institution_donation where " + keyField + " like ? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");
 			}

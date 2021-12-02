@@ -191,7 +191,7 @@
 									}
 								}
 						%>
-						  <a href="javascript:read('<%=institutionDonationId%>')"><%=title%></a></td>
+						  <a href="javascript:read('<%=institutionDonationId%>')" style="color: #000000;"><%=title%></a></td>
 						<td><%=name%></td>
 						<td><%=count%></td>
 						<td><input class="btn-request" type="submit" value="기부 요청하기" onClick="alert('<%=name%>\n기부 요청되었습니다.')"></td>
@@ -217,7 +217,7 @@
     			  		<a href="javascript:block('<%=nowBlock-1%>')">prev...</a><%}%>&nbsp; 
     			  		<%for ( ; pageStart < pageEnd; pageStart++){%>
      			     	<a href="javascript:pageing('<%=pageStart %>')"> 
-     					<%if(pageStart==nowPage) {%><font color="blue"> <%}%>
+     					<%if(pageStart==nowPage) {%><font color="black"> <%}%>
      					[<%=pageStart %>] 
      					<%if(pageStart==nowPage) {%></font> <%}%></a> 
     					<%}//for%>&nbsp; 

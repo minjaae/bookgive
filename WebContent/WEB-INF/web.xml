@@ -15,77 +15,70 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-  version="4.0"
-  metadata-complete="true">
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" metadata-complete="true" version="4.0">
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to Tomcat
   </description>
-	<servlet>
-		<servlet-name>default</servlet-name>
-		<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
-		<init-param>
-			<param-name>debug</param-name>
-			<param-value>0</param-value>
-		</init-param>
-		<init-param>
-			<param-name>listings</param-name>
-			<param-value>false</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	
-
-	
-		<servlet>
-		<servlet-name>iBoardPostServlet</servlet-name>
-		<servlet-class>iBoardPostServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>iBoardPostServlet</servlet-name>
-		<url-pattern>/iboardPost</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>iBoardUpdateServlet</servlet-name>
-		<servlet-class>iBoardUpdateServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>iBoardUpdateServlet</servlet-name>
-		<url-pattern>/iboardUpdate</url-pattern>
-	</servlet-mapping>
-	
-		<servlet>
-		<servlet-name>iBoardReplyServlet</servlet-name>
-		<servlet-class>iBoardReplyServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>iBoardReplyServlet</servlet-name>
-		<url-pattern>/iboardReply</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>PersonalDonationWriteServlet</servlet-name>
-		<servlet-class>PersonalDonationWriteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>PersonalDonationWriteServlet</servlet-name>
-		<url-pattern>/PDWrite</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>PersonalDonationUpdateServlet</servlet-name>
-		<servlet-class>PersonalDonationUpdateServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>PersonalDonationUpdateServlet</servlet-name>
-		<url-pattern>/PDUpdate</url-pattern>
-	</servlet-mapping>
-	
-	
-	
+  <servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>0</param-value>
+    </init-param>
+    <init-param>
+      <param-name>listings</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>iBoardPostServlet</servlet-name>
+    <servlet-class>iBoardPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>iBoardPostServlet</servlet-name>
+    <url-pattern>/iboardPost</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>iBoardUpdateServlet</servlet-name>
+    <servlet-class>iBoardUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>iBoardUpdateServlet</servlet-name>
+    <url-pattern>/iboardUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>iBoardReplyServlet</servlet-name>
+    <servlet-class>iBoardReplyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>iBoardReplyServlet</servlet-name>
+    <url-pattern>/iboardReply</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PersonalDonationWriteServlet</servlet-name>
+    <servlet-class>PersonalDonationWriteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalDonationWriteServlet</servlet-name>
+    <url-pattern>/PDWrite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PersonalDonationUpdateServlet</servlet-name>
+    <servlet-class>PersonalDonationUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalDonationUpdateServlet</servlet-name>
+    <url-pattern>/PDUpdate</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>PersonalDonationReplyServlet</servlet-name>
+    <servlet-class>PersonalDonationReplyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalDonationReplyServlet</servlet-name>
+    <url-pattern>/PDReply</url-pattern>
+  </servlet-mapping>
 </web-app>

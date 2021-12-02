@@ -14,6 +14,9 @@ public class PersonalDonationBean{
    private String filename;
    private int filesize;
    private int count;
+   private int pos;
+   private int ref;
+   private int depth;
    
    public void setPersonalDonationId(int personal_donation_id) {
       this.personal_donation_id = personal_donation_id;
@@ -47,6 +50,15 @@ public class PersonalDonationBean{
    }
    public void setCount(int count) {
       this.count = count;
+   }
+   public void setPos(int pos) {
+	   this.pos = pos;
+   }
+   public void setRef(int ref) {
+	   this.ref = ref;
+   }
+   public void setDepth(int depth) {
+	   this.depth = depth;
    }
    
    public int getPersonalDonationId() {
@@ -83,5 +95,17 @@ public class PersonalDonationBean{
    public int getCount() {
       return count;
    }
-      
+   
+   public int getPos() {
+	   return pos;
+   }
+   
+   public int getRef() {
+	   return ref;
+   }
+   
+   public int getDepth() {
+	   return depth;
+   }
+   
 }

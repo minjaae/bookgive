@@ -164,9 +164,11 @@ function check() {
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">번호</th>
                   <th
-                     style="background-color: #FAFAF0; text-align: center; width: 40%">제목</th>
+                     style="background-color: #FAFAF0; text-align: center; width: 20%">제목</th>
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
+                  <th
+                     style="background-color: #FAFAF0; text-align: center; width: 20%">조회수</th> 
                   <th
                      style="background-color: #FAFAF0; text-align: center; width: 20%">거래상태</th>   
                </tr>
@@ -195,6 +197,7 @@ function check() {
                           <a href="javascript:read('<%=personal_donation_id%>')" style="color: #000000; "><%=title%></a>
                         </td>
                         <td align="center"><%=userid%></td>
+                        <td align="center"><%=count%></td>
                         <td align="center"><%=state%></td>
                      </tr>
                      </tbody>
@@ -229,11 +232,11 @@ function check() {
                 <%}%>&nbsp;  
                <%}%>
              <!-- 페이징 및 블럭 처리 End-->
+           	<td align="right">
+	            <a href="personal_donation_write.jsp">[글쓰기]</a> 
+	            <a href="personal_donation.jsp">[처음으로]</a>
+         	</td>
       </td>
-         <td align="right">
-            <a href="personal_donation_write.jsp">[글쓰기]</a> 
-            <a href="personal_donation.jsp">[처음으로]</a>
-         </td>
    </tr>
 </table>
 
