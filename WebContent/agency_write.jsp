@@ -69,8 +69,9 @@
 	<div>
 		<div>
 			<form name="postFrm" method="post" action="iboardPost" enctype="multipart/form-data">
+			<div class="container">
 				<table
-					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
+					style="text-align: center; border: 1px solid #dddddd; width: 100%">
 					<thead>
 						<tr>
 							<th colspan="2"
@@ -89,28 +90,24 @@
 									maxlength="2048"
 									style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 						</tr>
-						
+						<tr>
+							<td>비밀번호<input type="password" name="pass"  maxlength="30" 
+								style="width: 60%; margin-left : 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+						</tr>
+						<tr>
+     							<td>파일 찾기<input type="file" name="filename" size="50" maxlength="30" 
+								style="width: 60%; margin-left : 1rem; margin-top: 1rem;"></td>
+    						</tr>
+    						<tr>
+    							<td colspan="2" align = "center">
+						 		<input class="btn-write" type="submit" value="등록">
+							</td>
+						</tr>
 					</tbody>
-					
-			
 					<tr>
-				
 				</table>
-				
-				<table
-					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
-				<td>비밀 번호</td>
-				<td><input type="password" name="pass" size="15" maxlength="15"></td>
-			</tr>
-			<tr>
-     			<td>파일찾기</td> 
-     			<td><input type="file" name="filename" size="50" maxlength="50"></td>
-    		</tr>
-    		</table>
-    		
-				
 				<input type="hidden" name="userID" value="<%=id%>">
-				<input class="btn-write" type="submit" value="등록">
+			</div>
 			</form>
 		</div>
 	</div>
