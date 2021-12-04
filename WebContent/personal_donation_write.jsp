@@ -69,8 +69,9 @@
 	<div>
 		<div>
 			<form name="postFrm" method="post" action="PDWrite" enctype="multipart/form-data">
+			<div class="container">
 				<table
-					style="text-align: center; border: 1px solid #dddddd; width: 72%; margin-left: 14%;">
+					style="text-align: center; border: 1px solid #dddddd; width: 100%;">
 					<thead>
 					</thead>
 					<tbody>
@@ -105,15 +106,16 @@
     					</tr>
     					<tr>
     						<td colspan="2" align = "center">
-						 		<input type="submit" value="등록">
-						 		<input type="reset" value="다시쓰기">
-						 		<input type="button" value="리스트" onClick="javascript:location.href='personal_donation.jsp'">
+						 		<input class="btn-write" type="submit" value="등록">
+						 		<input class="btn-write" type="reset" value="다시쓰기">
+						 		<input class="btn-write" type="button" value="리스트" onClick="javascript:location.href='personal_donation.jsp'">
 							</td>
 						</tr>
 					</tbody>
 					<tr>
 				</table>
 				<input type="hidden" name="userID" value="<%=id%>">
+			</div>
 			</form>
 		</div>
 	</div>
