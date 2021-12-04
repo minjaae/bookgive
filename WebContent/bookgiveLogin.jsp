@@ -26,6 +26,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 
 
 <title>책, 도움</title>
@@ -34,75 +35,64 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script language="JavaScript">
-	var idx = 0;
-	var i = 0; // 사진 인덱스를 저장할 변수 설정
-	$(".pre").click(
-			function() { // img 크기만큼 왼쪽으로 이동
-				idx = idx - 1;
-				if (idx < 1) {
-					i = idx % 3;
-					i = i + 4;
-					if (i == 4) {
-						i = 1;
-					}
-				} else {
-					i = idx % 3;
-					if (i == 0) {
-						i = 3;
-					}
-				}
-				$(".imgSlide>li:last-child").remove();
-				$(".imgSlide").prepend(
-						"<li><img src='http://doqtqu.dothome.co.kr/images/imgSlideBtn/images("
-								+ i + ").jpg' alt=''></li>");
-				$(".imgSlide").css({
-					"left" : "-3200px"
-				});
-				$(".imgSlide").stop().animate({
-					"left" : "-2400px"
-				}, "slow");
-				console.log(idx);
-			});
-	$(".next").click(
-			function() { // img 크기만큼 오른쪽으로 이동
-				idx = idx + 1;
-				if (idx < 1) {
-					i = idx % 3;
-					i = i + 3;
-				} else {
-					i = idx % 3;
-					if (i == 0) {
-						i = 3;
-					}
-				}
-				$(".imgSlide>li:first-child").remove();
-				$(".imgSlide").append(
-						"<li><img src='http://doqtqu.dothome.co.kr/images/imgSlideBtn/images("
-								+ i + ").jpg' alt=''></li>");
-				$(".imgSlide").css({
-					"left" : "-1600px"
-				});
-				$(".imgSlide").stop().animate({
-					"left" : "-2400px"
-				}, "slow");
-				console.log(idx);
-			});
+	//슬라이드 스크립
+	var slideIndex = 1;
+	// HTML 로드가 끝난 후 동작
+	window.onload = function() {
+		showSlides(slideIndex);
+
+		// Auto Move Slide
+		var sec = 2000;
+		setInterval(function() {
+			slideIndex++;
+			showSlides(slideIndex);
+		}, sec);
+	}
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slides.length) {
+			slideIndex = 1
+		}
+		if (n < 1) {
+			slideIndex = slides.length
+		}
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+	}
 </script>
 </head>
 <body>
-
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='logout.jsp';">
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
 			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -119,21 +109,36 @@
 		</div>
 	</nav>
 
-	<div class="banner">
-		<div class="slide">
-			<ul class="imgSlide">
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-				<li><img src="#.jpg" alt=""></li>
-			</ul>
-			<div class="moveBtn">
-				<a href="#" class="pre"> < </a> <a href="#" class="next"> > </a>
-			</div>
+	<!-- 메인 슬라이드 -->
+	<div class="moveBtn2" style="text-align: center;">
+		<a class="prev" onclick="plusSlides(-1)"> < </a> <a class="next"
+			onclick="plusSlides(1)"> > </a>
+	</div>
+	<div class="slideshow-container"
+		style="text-align: center; padding-top: 50px;">
+		<div class="mySlides fade2">
+			<img class="main_slideImg" src="img\bannerImg1.jpg"
+				style="width: 1000px; height: 500px;">
+		</div>
+		<div class="mySlides fade2">
+			<img class="main_slideImg" src="img\bannerImg2.jpg"
+				style="width: 1000px; height: 500px;">
+		</div>
+		<div class="mySlides fade2">
+			<img class="main_slideImg" src="img\bannerImg3.jpg"
+				style="width: 1000px; height: 500px;">
 		</div>
 	</div>
+	<div style="text-align: center; padding-top: 10px;">
+		<span class="dot" onclick="currentSlide(1)"></span> <span class="dot"
+			onclick="currentSlide(2)"></span> <span class="dot"
+			onclick="currentSlide(3)"></span>
+	</div>
+
+
+	<div style="text-align: center"></div>
+
+	<!-- 메인 슬라이드 End -->
 
 	<footer>
 
@@ -144,7 +149,7 @@
 					<p>'책, 도움'은 책이 필요한 누구에게나 '기부'를 통해 책을 제공하고 있습니다. 버려지는 책을 줄이고 많은
 						사람들에게 책이 주는 기쁨을 드리고자 노력하고 있습니다. 지구와 발 맞춰 친환경적인 웹 플랫폼을 꾸려나가겠습니다.</p>
 					<p>
-						<a href="#" class="readmore">Read more</a>
+						<a href="about.jsp" class="readmore">Read more</a>
 					</p>
 				</div>
 				<div class="col-md-8 ml-auto">
@@ -197,8 +202,9 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights
+						Reserved. Design by <a href="https://github.com/bookgive"
+							target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

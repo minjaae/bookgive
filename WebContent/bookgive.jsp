@@ -106,22 +106,24 @@
 			<a class="prev" onclick="plusSlides(-1)"> < </a>
 			<a class="next"onclick="plusSlides(1)"> > </a>
 	</div>
-	<div class="slideshow-container" style="text-align:center;">
+	<div class="slideshow-container" style="text-align:center; padding-top : 50px;">
 		<div class="mySlides fade2">
 		<img class="main_slideImg" 
-		src="https://user-images.githubusercontent.com/87636557/143853597-f6c64971-302c-40d1-8c09-f5d5c5d1cd9e.jpg"
+		src="img\bannerImg1.jpg"
 		style="width:1000px; height:500px;">
 		</div>
 		<div class="mySlides fade2">
-		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143853639-b6b94356-b896-4a89-bed1-b07ac6e636e2.jpg"
+		<img class="main_slideImg" 
+		src="img\bannerImg2.jpg"
 		style="width:1000px; height:500px;">
 		</div>
 		<div class="mySlides fade2">
-		<img class="main_slideImg" src="https://user-images.githubusercontent.com/87636557/143853614-e9fa8e0f-eb17-4be8-8f21-ca9b21fb871b.jpg"
+		<img class="main_slideImg" 
+		src="img\bannerImg3.jpg"
 		style="width:1000px; height:500px;">
 		</div>
 	</div>
-	<div style="text-align: center">
+	<div style="text-align: center; padding-top : 10px;">
 		<span class="dot" onclick="currentSlide(1)"></span> 
 		<span class="dot" onclick="currentSlide(2)"></span>
 		<span class="dot" onclick="currentSlide(3)"></span>
@@ -141,7 +143,7 @@
 					<p>'책, 도움'은 책이 필요한 누구에게나 '기부'를 통해 책을 제공하고 있습니다. 버려지는 책을 줄이고 많은
 						사람들에게 책이 주는 기쁨을 드리고자 노력하고 있습니다. 지구와 발 맞춰 친환경적인 웹 플랫폼을 꾸려나가겠습니다.</p>
 					<p>
-						<a href="#" class="readmore">Read more</a>
+						<a href="about.jsp" class="readmore">Read more</a>
 					</p>
 				</div>
 				<div class="col-md-8 ml-auto">
@@ -194,8 +196,8 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
+						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

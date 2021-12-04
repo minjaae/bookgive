@@ -190,8 +190,8 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
+						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

@@ -11,7 +11,7 @@
 	  if(result){
 	    session.setAttribute("idKey",id);
 	    msg = "로그인에 성공하였습니다.";
-	    url = "bookgive.jsp";
+	    url = "bookgiveLogin.jsp";
 	  }
 %>
 <script>

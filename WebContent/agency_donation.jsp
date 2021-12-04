@@ -120,11 +120,8 @@
 		</div>
 		<%
 			if(id != null){
-		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+				response.sendRedirect("agency_donation_login.jsp");
+			}
 		%>
 		<div class="mainLogo container">
 			<div>
@@ -142,123 +139,10 @@
 		</div>
 	</nav>
 	<div>
-		<input class="btn-write" type="submit" value="글 쓰기" OnClick="location.href='agency_write.jsp'" style="left: 81%;">
-		<div class="container">
-			<table  width=100%
-				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
-				<%
-				  vlist = bMgr.getBoardList(keyField, keyWord, start, end);
-				  listSize = vlist.size();//브라우저 화면에 보여질 게시물갯수
-				  if (vlist.isEmpty()) {
-					out.println("등록된 게시물이 없습니다.");
-				  } else {
-			%>
-				
-				<thead>
-					<tr>
-						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">번호</th>
-						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">제목</th>
-						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
-						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">조회수</th>
-						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">기부 요청</th>
-					</tr>
-				</thead>
-				
-				
-				<%
-						  for (int i = 0;i<numPerPage; i++) {
-							if (i == listSize) break;
-							InstitutionDonationBean bean = vlist.get(i);
-							int institutionDonationId = bean.getInstitutionDonationId();
-							String title = bean.getTitle();
-							String name = bean.getUserID();
-							int depth = bean.getDepth();
-							int count = bean.getCount();
-					%>
-				
-				<tbody>
-					<tr>
-						<td><%=totalRecord-((nowPage-1)*numPerPage)-i%></td>
-						<td><%
-							  if(depth>0){
-								for(int j=0;j<depth;j++){
-									out.println("&nbsp;&nbsp;");
-									}
-								}
-						%>
-						  <a href="javascript:read('<%=institutionDonationId%>')" style="color: #000000;"><%=title%></a></td>
-						<td><%=name%></td>
-						<td><%=count%></td>
-						<td><input class="btn-request" type="submit" value="기부 요청하기" onClick="alert('<%=name%>\n기부 요청되었습니다.')"></td>
-					</tr>
-					<%}//for%>
-				</tbody>
-				<%
- 			}//if
- 		%>
- 		
- 		<tr>
-			<td colspan="2"><br /><br /></td>
-		</tr>
-		<tr>
-			<td>
-			<!-- 페이징 및 블럭 처리 Start--> 
-			<%
-   				  int pageStart = (nowBlock -1)*pagePerBlock + 1 ; //하단 페이지 시작번호
-   				  int pageEnd = ((pageStart + pagePerBlock ) <= totalPage) ?  (pageStart + pagePerBlock): totalPage+1; 
-   				  //하단 페이지 끝번호
-   				  if(totalPage !=0){
-    			  	if (nowBlock > 1) {%>
-    			  		<a href="javascript:block('<%=nowBlock-1%>')">prev...</a><%}%>&nbsp; 
-    			  		<%for ( ; pageStart < pageEnd; pageStart++){%>
-     			     	<a href="javascript:pageing('<%=pageStart %>')"> 
-     					<%if(pageStart==nowPage) {%><font color="black"> <%}%>
-     					[<%=pageStart %>] 
-     					<%if(pageStart==nowPage) {%></font> <%}%></a> 
-    					<%}//for%>&nbsp; 
-    					<%if (totalBlock > nowBlock ) {%>
-    					<a href="javascript:block('<%=nowBlock+1%>')">.....next</a>
-    				<%}%>&nbsp;  
-   				<%}%>
- 				<!-- 페이징 및 블럭 처리 End-->
-				</td>
-			</tr>
- 		
-			</table>
-			
-	<form  name="searchFrm"  method="get" action="agency_donation.jsp">
-	<table align="center" width="80%" cellpadding="40" cellspacing="0">
- 		<tr>
-  			<td align="center" valign="bottom">
-   				<select name="keyField" size="1" >
-    				<option value="userID"> 아이디</option>
-    				<option value="title"> 제 목</option>
-    				<option value="content"> 내 용</option>
-   				</select>
-   				<input size="16" name="keyWord">
-   				<input type="button"  value="찾기" onClick="javascript:check()">
-   				<input type="hidden" name="nowPage" value="1">
-  			</td>
- 		</tr>
-	</table>
-	</form>
-	<form name="listFrm" method="post">
-		<input type="hidden" name="reload" value="true"> 
-		<input type="hidden" name="nowPage" value="1">
-	</form>
-	<form name="readFrm" method="get">
-		<input type="hidden" name="institutionDonationId"> 
-		<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
-		<input type="hidden" name="keyField" value="<%=keyField%>"> 
-		<input type="hidden" name="keyWord" value="<%=keyWord%>">
-	</form>
-			
-		</div>
+		<div class="container" style="padding-top : 30px; text-align : center;">
+		해당 페이지를 사용하실 수 없습니다. </br>
+		로그인 후 이용해주시길 바랍니다.
+		</div>	
 	</div>
 
 	<footer>
@@ -271,8 +155,8 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
+						<a href="https://github.com/bookgive/" target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

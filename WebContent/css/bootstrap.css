@@ -179,71 +179,7 @@ ol ol, ol ul, ul ol, ul ul {
 }
 
 /* banner */
-.banner {
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
 
-.banner a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.slide {
-	width: 800px;
-	height: 320px;
-	top: 50px;
-	margin: 0 auto;
-	padding: 0;
-	overflow: hidden;
-	/*�쁺�뿭 諛뽰쑝濡� ���뼱�굹�삩 �삤釉뚯젥�듃�뒗 �닲湲대떎.*/
-}
-
-.imgSlide {
-	width: 4800px;
-	left: -2400px;
-	/* �씠誘몄� �겕�궎 X �씠誘몄� 媛쒖닔 */
-	height: 320px;
-	position: absolute;
-	z-index: 1;
-}
-
-.imgSlide li {
-	float: left;
-	/*�씠誘몄�瑜� �쁿�쑝濡� �굹�뿴�떆�궓�떎.*/
-}
-
-.imgSlide img {
-	width: 800px;
-}
-
-.moveBtn {
-	width: 800px;
-	color: white;
-	top: 35%;
-	position: absolute;
-	z-index: 2;
-	font-size: 60px;
-}
-
-.moveBtn a {
-	color: #fafaf0;
-}
-
-.moveBtn a:hover {
-	color: #C3B29E;
-}
-
-.moveBtn .pre {
-	float: left;
-	margin-left: 10px;
-}
-
-.moveBtn .next {
-	float: right;
-	margin-right: 10px;
-}
 
 /* 濡쒓렇�씤 */
 .login-box {

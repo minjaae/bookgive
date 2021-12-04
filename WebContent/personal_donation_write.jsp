@@ -1,7 +1,7 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*"%>	
+<%@ page import="java.sql.*"%>
 <%@ page import="java.io.PrintWriter"%>
 <%
 	request.setCharacterEncoding("EUC-KR");
@@ -40,17 +40,20 @@
 		}
 	%>
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -68,73 +71,78 @@
 	</nav>
 	<div>
 		<div>
-			<form name="postFrm" method="post" action="PDWrite" enctype="multipart/form-data">
-			<div class="container">
-				<table
-					style="text-align: center; border: 1px solid #dddddd; width: 100%;">
-					<thead>
-					</thead>
-					<tbody>
+			<form name="postFrm" method="post" action="PDWrite"
+				enctype="multipart/form-data">
+				<div class="container">
+					<table
+						style="text-align: center; border: 1px solid #dddddd; width: 100%;">
+						<thead>
+						</thead>
+						<tbody>
+							<tr>
+								<th colspan="2"
+									style="background-color: #FAFAF0; text-align: center; width: 100%;">개인
+									기부 게시판 책 등록</th>
+							</tr>
+							<tr>
+
+								<td><input type="text" placeholder="책 제목을 입력해주세요."
+									name="title" maxlength="30"
+									style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+							</tr>
+							<tr>
+								<td><textarea placeholder="책의 상태를 자세히 작성해주세요."
+										name="content" maxlength="2048"
+										style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
+							</tr>
+							<tr>
+								<td>책 상태 <input type="text" placeholder=""
+									name="book_status" maxlength="30"
+									style="width: 60%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+							</tr>
+							<tr>
+								<td>비밀번호<input type="password" name="pwd" maxlength="30"
+									style="width: 60%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+							</tr>
+							<tr>
+								<td>파일 찾기<input type="file" name="filename" size="50"
+									maxlength="30"
+									style="width: 60%; margin-left: 1rem; margin-top: 1rem;"></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="center"><input class="btn-write"
+									type="submit" value="등록"> <input class="btn-write"
+									type="reset" value="다시쓰기"> <input class="btn-write"
+									type="button" value="리스트"
+									onClick="javascript:location.href='personal_donation.jsp'">
+								</td>
+							</tr>
+						</tbody>
 						<tr>
-							<th colspan="2"
-								style="background-color: #FAFAF0; text-align: center; width: 100%;">개인
-								기부 게시판 책 등록</th>
-						</tr>
-						<tr>
-						
-							<td>
-							<input type="text" placeholder="책 제목을 입력해주세요." name="title" maxlength="30"
-								style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
-						</tr>
-						<tr>
-							<td><textarea placeholder="책의 상태를 자세히 작성해주세요." name="content"
-									maxlength="2048"
-									style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
-						</tr>
-						<tr>
-							<td>책 상태 <input type="text" placeholder="" name="book_status"
-								maxlength="30" 
-								style="width: 60%; margin-left : 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
-						</tr>
-						<tr>
-							<td>비밀번호<input type="password" name="pwd"  maxlength="30" 
-								style="width: 60%; margin-left : 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
-						</tr>
-						<tr>
-     						<td>파일 찾기<input type="file" name="filename" size="50" maxlength="30" 
-								style="width: 60%; margin-left : 1rem; margin-top: 1rem;"></td>
-    					</tr>
-    					<tr>
-    						<td colspan="2" align = "center">
-						 		<input class="btn-write" type="submit" value="등록">
-						 		<input class="btn-write" type="reset" value="다시쓰기">
-						 		<input class="btn-write" type="button" value="리스트" onClick="javascript:location.href='personal_donation.jsp'">
-							</td>
-						</tr>
-					</tbody>
-					<tr>
-				</table>
-				<input type="hidden" name="userID" value="<%=id%>">
-			</div>
+					</table>
+					<input type="hidden" name="userID" value="<%=id%>">
+				</div>
 			</form>
 		</div>
 	</div>
 	<footer>
-	 <div class="container">
-         <div class="row mt-5 pt-5 align-items-center">
-            <div class="col-md-6 text-md-left">
-               <p>
-                  Copyright &copy;
-                  <script>
-                     document.write(new Date().getFullYear());
-                  </script>
-                  <a href="index.html">Book,give</a>. All Rights Reserved. Design by
-                  <a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
-               </p>
-            </div>
-         </div>
-      </div>
-	
+
+		<div class="container">
+			<div class="row mt-5 pt-5 align-items-center">
+				<div class="col-md-6 text-md-left">
+					<p>
+						Copyright &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights
+						Reserved. Design by <a href="https://github.com/bookgive/"
+							target="_blank" class="text-primary">Book,give</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
 	</footer>
 </body>
 </html>
