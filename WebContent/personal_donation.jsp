@@ -148,7 +148,7 @@ function check() {
    
    
    <div>
-      <input class="btn-write" type="submit" value="글 쓰기" onClick="location.href='personal_donation_write.jsp'">
+      <input class="btn-write" type="submit" value="글 쓰기" onClick="location.href='personal_donation_write.jsp'"  style="left: 81%;">
       <div class="container">
          <table 
             style="text-align: center; border: 1px solid #dddddd; width: 100%; margin: 0 auto;">
