@@ -142,7 +142,7 @@
 		</div>
 	</nav>
 	<div>
-		<input class="btn-write" type="submit" value="글 쓰기" OnClick="location.href='agency_write.jsp'">
+		<input class="btn-write" type="submit" value="글 쓰기" OnClick="location.href='agency_write.jsp'" style="left: 81%;>
 		<div class="container">
 			<table  width=100%
 				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
