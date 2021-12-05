@@ -1,14 +1,14 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@page import="bookgive.InstitutionDonationBean"%>
+<%@page import="bookgive.InstitutionDonationBean"%>
 <jsp:useBean id="bMgr" class="bookgive.InstitutionBoardMgr" />
 <%@ page import="java.util.*, bookgive.*"%>
 <jsp:useBean id="regMgr" class="bookgive.IntroMgrPool" />
 <%
 	request.setCharacterEncoding("EUC-KR");
 	String id = (String) session.getAttribute("idKey");
-String nowPage = request.getParameter("nowPage");
+	String nowPage = request.getParameter("nowPage");
 	int num = Integer.parseInt(request.getParameter("num"));
 	if (request.getParameter("pass") != null) {
 		String inPass = request.getParameter("pass");
@@ -24,7 +24,8 @@ String nowPage = request.getParameter("nowPage");
 	alert("입력하신 비밀번호가 아닙니다.");
 	history.back();
 </script>
-<%}
+<%
+	}
 	} else {
 %>
 <script type="text/javascript">
@@ -59,25 +60,28 @@ String nowPage = request.getParameter("nowPage");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
-	
+
+
 
 <title>삭제</title>
 </head>
 <body>
-   
+
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -96,43 +100,44 @@ String nowPage = request.getParameter("nowPage");
 	<div>
 		<div class="container">
 			<div align="center">
-		<br/><br/>
-		<table width="600" cellpadding="3">
-			<tr>
-				<td bgcolor=#dddddd height="21" align="center">
-					사용자의 비밀번호를 입력해주세요.
-				</td>
-			</tr>
-		</table>
-		<form name="delFrm" method="post" action="agency_donation_delete.jsp">
-			<table width="600" cellpadding="2">
-				<tr>
-					<td align="center">
-						<table>
-							<tr>
-								<td align="center">
-									<input type="password" name="pass" size="17" maxlength="15">
-								</td>
-							</tr>
-							<tr>
-								<td><hr size="1" color="#eeeeee"/></td>
-							</tr>
-							<tr>
-								<td align="center">
-									<input type="button" value="삭제완료" onClick="check()"> 
-									<input type="reset" value="다시쓰기">
-									<input type="button" value="뒤로" onClick="history.go(-1)">
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
-			<input type="hidden" name="num" value="<%=num%>">
-		</form>
-	</div>
-	<%}%>
+				<br />
+				<br />
+				<table width="600" cellpadding="3">
+					<tr>
+						<td bgcolor=#dddddd height="21" align="center">사용자의 비밀번호를
+							입력해주세요.</td>
+					</tr>
+				</table>
+				<form name="delFrm" method="post"
+					action="agency_donation_delete.jsp">
+					<table width="600" cellpadding="2">
+						<tr>
+							<td align="center">
+								<table>
+									<tr>
+										<td align="center"><input type="password" name="pass"
+											size="17" maxlength="15"></td>
+									</tr>
+									<tr>
+										<td><hr size="1" color="#eeeeee" /></td>
+									</tr>
+
+									<tr>
+										<td align="center"><a style="color: #000000;" type="button" onClick="check()">[ 삭제 완료 | 
+									</a> <a style="color: #000000;" type="reset">다시 쓰기 | </a> <a style="color: #000000;" type="button"
+										onClick="history.go(-1)">뒤로 ]</a></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<input type="hidden" name="nowPage" value="<%=nowPage%>"> <input
+						type="hidden" name="num" value="<%=num%>">
+				</form>
+			</div>
+			<%
+				}
+			%>
 		</div>
 	</div>
 	<footer>
@@ -145,8 +150,8 @@ String nowPage = request.getParameter("nowPage");
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
+						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

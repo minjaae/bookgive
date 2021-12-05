@@ -51,7 +51,7 @@
 	}
 </script>
 
-<title>about</title>
+<title>게시글 수정하기</title>
 </head>
 <body>
 
@@ -89,7 +89,7 @@
 		<div class="container">
 			<div class="donation-read-box">
 				<div id="donation-read-frm">
-					<div class="donation-read-table-box">
+					<div class="donation-read-table-box radiooo">
 						<p
 							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">수정하기</p>
 						<form name="updateFrm" method="post" action="iboardUpdate">
@@ -106,10 +106,9 @@
 								<tr>
 									<td>거래상태</td>
 									<td style="font-size: 15px;">
-									<input type="radio" name="donation_state" value="false" checked="checked"> 진행중  &ensp;
-<input type="radio" name="donation_state" value="true"> 거래 완료</td></tr>
-									</td>
-								<tr>
+									<input type="radio" name="donation_state" value="false" checked="checked"> 진행중
+									<input type="radio" name="donation_state" value="true"> 거래 완료</td>
+								</tr>
 								<tr>
 									<td>비밀번호</td>
 									<td style="font-size: 13px;"><input type="password"
@@ -146,8 +145,8 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
+						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

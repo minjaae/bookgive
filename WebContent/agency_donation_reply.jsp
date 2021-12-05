@@ -1,15 +1,16 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ page import="java.util.*, bookgive.*"%>
-<jsp:useBean id="bean" class="bookgive.InstitutionDonationBean" scope="session"/>
+<jsp:useBean id="bean" class="bookgive.InstitutionDonationBean"
+	scope="session" />
 <%
 	request.setCharacterEncoding("EUC-KR");
 	String id = (String) session.getAttribute("idKey");
-	  String nowPage = request.getParameter("nowPage");
-	  String subject = bean.getTitle();
-	  String content = bean.getContent(); 
+	String nowPage = request.getParameter("nowPage");
+	String subject = bean.getTitle();
+	String content = bean.getContent();
 %>
 <html>
 
@@ -34,22 +35,25 @@
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
 
-<title>reply</title>
+<title>게시글 답변하기</title>
 </head>
 <body>
-   
+
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -67,54 +71,52 @@
 	</nav>
 	<div>
 		<div class="container">
-			<br><br>
- <table width="600" cellpadding="3">
-
-</table>
-<form method="post" action="iboardReply" >
-<table width="600" cellpadding="7">
- <tr>
-  <td>
-   <table>
-    <tr>
-     <td width="20%">제 목</td>
-     <td width="80%">
-	  <input name="title" size="50" value="답변 : <%=subject%>" maxlength="50"></td> 
-    </tr>
-	<tr>
-     <td>내 용</td>
-     <td>
-	  <textarea name="content" rows="12" cols="50">
-      	<%=content %>
-      	========답변 글을 쓰세요.=======
-      	</textarea>
-      </td>
-    </tr>
-    <tr>
-     <td>비밀 번호</td> 
-     <td>
-	  <input type="password" name="pass" size="15" maxlength="15"></td> 
-    </tr>
-    <tr>
-     <td colspan="2" height="5"><hr/></td>
-    </tr>
-	<tr> 
-     <td colspan="2">
-	  <input type="submit" value="답변등록" >
-      <input type="reset" value="다시쓰기">
-      <input type="button" value="뒤로" onClick="history.back()"></td>
-    </tr> 
-   </table>
-  </td>
- </tr>
-</table>
- <input type="hidden" name="nowPage" value="<%=nowPage%>">
- <input type="hidden" name="ref" value="<%=bean.getRef()%>">
- <input type="hidden" name="pos" value="<%=bean.getPos()%>">
- <input type="hidden" name="userID" value="<%=bean.getUserID()%>"></td>
- <input type="hidden" name="depth" value="<%=bean.getDepth()%>">
-</form> 
+			<div class="donation-read-box">
+				<div id="donation-read-frm">
+					<div class="donation-read-table-box">
+						<p
+							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">답변하기</p>
+						<form method="post" action="iboardReply">
+							<table width="100%;">
+								<tr>
+									<td>제 목</td>
+									<td style="font-size: 15px;"><input name="title" size="50"
+										value="ㄴ 답변 : <%=subject%>" maxlength="50"></td>
+								</tr>
+								<tr>
+									<td>내 용</td>
+									<td style="font-size: 15px;"><textarea name="content">
+      	<%=content%>
+      	======== 답변 글을 쓰세요. =======
+      	</textarea></td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td style="font-size: 13px;"><input type="password"
+										name="pass" size="15" maxlength="15">&nbsp;
+										답변 시에는 비밀번호가 필요합니다.</td>
+								</tr>
+								<tr>
+									<td colspan="2" height="5"><hr /></td>
+								</tr>
+								<tr>
+									<td colspan="2"><input style="border : 0; background-color : #fafaf0; color: #000000;" type="submit" value="[ 답변등록  |" >
+										<a a style="color: #000000;" type="reset">다시 쓰기 | </a> <a style="color: #000000;" type="button"
+										onClick="history.back()">뒤로 ]</a>
+									</td>
+								</tr>
+							</table>
+							<input type="hidden" name="nowPage" value="<%=nowPage%>">
+							<input type="hidden" name="ref" value="<%=bean.getRef()%>">
+							<input type="hidden" name="pos" value="<%=bean.getPos()%>">
+							<input type="hidden" name="userID" value="<%=bean.getUserID()%>">
+							<input type="hidden" name="depth" value="<%=bean.getDepth()%>">
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
+
 	</div>
 	<footer>
 
@@ -126,8 +128,9 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights
+						Reserved. Design by <a href="https://github.com/bookgive"
+							target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

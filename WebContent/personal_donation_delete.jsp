@@ -1,7 +1,7 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:useBean id="PDM" class="bookgive.PersonalDonationMgrPool"/>
+<jsp:useBean id="PDM" class="bookgive.PersonalDonationMgrPool" />
 <%@page import="java.io.PrintWriter"%>
 <%@page import="bookgive.PersonalDonationBean"%>
 <%
@@ -41,17 +41,20 @@
 		}
 	%>
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -70,78 +73,80 @@
 
 	<div>
 		<div class="container">
-		<%
-			request.setCharacterEncoding("EUC-KR");
-			String nowPage = request.getParameter("nowPage");
-			int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
-			if (request.getParameter("pwd") != null) {
-				String inPass = request.getParameter("pwd");
-				PersonalDonationBean bean = (PersonalDonationBean)session.getAttribute("bean");
-				String dbPass = bean.getPWD();
-				if (inPass.equals(dbPass)) {
-				PDM.deleteBoard(personal_donation_id);
-				String url = "personal_donation.jsp?nowPage=" + nowPage;
-				response.sendRedirect(url);
-			} else {
-		%>
-<script type="text/javascript">
-	alert("입력하신 비밀번호가 아닙니다.");
-	history.back();
-</script>
-<%}
-	} else {
-%>
-<script type="text/javascript">
-	function check() {
-		if (document.delFrm.pwd.value == "") {
-			alert("패스워드를 입력하세요.");
-			document.delFrm.pwd.focus();
-			return false;
-		}
-		document.delFrm.submit();
-	}
-</script>
-</head>
-<body bgcolor="#FFFFCC">
-	<div align="center">
-		<br/><br/>
-		<table width="600" cellpadding="3">
-			<tr>
-				<td bgcolor=#dddddd height="21" align="center">
-					사용자의 비밀번호를 입력해주세요.
-				</td>
-			</tr>
-		</table>
-		<form name="delFrm" method="post" action="personal_donation_delete.jsp">
-			<table width="600" cellpadding="2">
-				<tr>
-					<td align="center">
-						<table>
+			<%
+				request.setCharacterEncoding("EUC-KR");
+				String nowPage = request.getParameter("nowPage");
+				int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
+				if (request.getParameter("pwd") != null) {
+					String inPass = request.getParameter("pwd");
+					PersonalDonationBean bean = (PersonalDonationBean) session.getAttribute("bean");
+					String dbPass = bean.getPWD();
+					if (inPass.equals(dbPass)) {
+						PDM.deleteBoard(personal_donation_id);
+						String url = "personal_donation.jsp?nowPage=" + nowPage;
+						response.sendRedirect(url);
+					} else {
+			%>
+			<script type="text/javascript">
+				alert("입력하신 비밀번호가 아닙니다.");
+				history.back();
+			</script>
+			<%
+				}
+				} else {
+			%>
+			<script type="text/javascript">
+				function check() {
+					if (document.delFrm.pwd.value == "") {
+						alert("패스워드를 입력하세요.");
+						document.delFrm.pwd.focus();
+						return false;
+					}
+					document.delFrm.submit();
+				}
+			</script>
+			</head>
+			<body bgcolor="#FFFFCC">
+				<div align="center">
+					<br />
+					<br />
+					<table width="600" cellpadding="3">
+						<tr>
+							<td bgcolor=#dddddd height="21" align="center">사용자의 비밀번호를
+								입력해주세요.</td>
+						</tr>
+					</table>
+					<form name="delFrm" method="post"
+						action="personal_donation_delete.jsp">
+						<table width="600" cellpadding="2">
 							<tr>
 								<td align="center">
-									<input type="password" name="pwd" size="17" maxlength="15">
-								</td>
-							</tr>
-							<tr>
-								<td><hr size="1" color="#eeeeee"/></td>
-							</tr>
-							<tr>
-								<td align="center">
-									<input type="button" value="삭제완료" onClick="check()"> 
-									<input type="reset" value="다시쓰기">
-									<input type="button" value="뒤로" onClick="history.go(-1)">
+									<table>
+										<tr>
+											<td align="center"><input type="password" name="pwd"
+												size="17" maxlength="15"></td>
+										</tr>
+										<tr>
+											<td><hr size="1" color="#eeeeee" /></td>
+										</tr>
+										<tr>
+										<td align="center"><a style="color: #000000;" type="button" onClick="check()">[ 삭제 완료 | 
+									</a> <a style="color: #000000;" type="reset">다시 쓰기 | </a> <a style="color: #000000;" type="button"
+										onClick="history.go(-1)">뒤로 ]</a></td>
+									</tr>
+									</table>
 								</td>
 							</tr>
 						</table>
-					</td>
-				</tr>
-			</table>
-			<input type="hidden" name="nowPage" value="<%=nowPage%>"> 
-			<input type="hidden" name="personal_donation_id" value="<%=personal_donation_id%>">
-		</form>
-	</div>
-	<%}%>
-		
+						<input type="hidden" name="nowPage" value="<%=nowPage%>">
+						<input type="hidden" name="personal_donation_id"
+							value="<%=personal_donation_id%>">
+					</form>
+				</div>
+				<%
+					}
+				%>
+			
 		</div>
 	</div>
 </body>

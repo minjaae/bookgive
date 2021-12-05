@@ -3,17 +3,17 @@
 	pageEncoding="UTF-8"%>
 <%@page import="bookgive.PersonalDonationBean"%>
 <%@ page import="java.util.Date,java.io.*,java.util.Enumeration"%>
-<jsp:useBean id="PD" class="bookgive.PersonalDonationMgrPool" />	
+<jsp:useBean id="PD" class="bookgive.PersonalDonationMgrPool" />
 
 <%
-	  request.setCharacterEncoding("EUC-KR");
-	  String id = (String) session.getAttribute("idKey");
-	  int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
-	  String nowPage = request.getParameter("nowPage");
-	  PersonalDonationBean bean = (PersonalDonationBean)session.getAttribute("bean");
-	  String title = bean.getTitle();
-	  String userID = bean.getUserID(); 
-	  String content = bean.getContent(); 
+	request.setCharacterEncoding("EUC-KR");
+	String id = (String) session.getAttribute("idKey");
+	int personal_donation_id = Integer.parseInt(request.getParameter("personal_donation_id"));
+	String nowPage = request.getParameter("nowPage");
+	PersonalDonationBean bean = (PersonalDonationBean) session.getAttribute("bean");
+	String title = bean.getTitle();
+	String userID = bean.getUserID();
+	String content = bean.getContent();
 %>
 <html>
 
@@ -37,32 +37,35 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
-<title>개인 기부 게시판</title>
+
+<title>게시글 수정하기</title>
 <script>
 	function check() {
-	   if (document.updateFrm.pwd.value == "") {
-		 alert("수정을 위해 패스워드를 입력하세요.");
-		 document.updateFrm.pwd.focus();
-		 return false;
-		 }
-	   document.updateFrm.submit();
+		if (document.updateFrm.pwd.value == "") {
+			alert("수정을 위해 패스워드를 입력하세요.");
+			document.updateFrm.pwd.focus();
+			return false;
+		}
+		document.updateFrm.submit();
 	}
 </script>
 </head>
 <body>
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -78,77 +81,73 @@
 			</ul>
 		</div>
 	</nav>
-	<div align = "center">
+	<div>
 		<div class="container">
-			<table width="600" cellpadding="3">
-  <tr>
-   <td bgcolor="#FF9018"  height="21" align="center">수정하기</td>
-  </tr>
-</table>
-<form name="updateFrm" method="post" action="PDUpdate">
-<table width="600" cellpadding="7">
- <tr>
-  <td>
-   <table >
-	<tr>
-     <td>제 목</td>
-     <td width="20%">
-	  <input name="title" size="50" value="<%=title%>" maxlength="50">
-	 </td>
-    <tr>
-     <td  width="80%">내 용</td>
-     <td>
-	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
-	 </td>
-    </tr>
-    <tr>
-	<td>거래 상태</td>
-	<td>
-<input type="radio" name="donation_state" value="false" checked="checked"> 진행중  &ensp;
-<input type="radio" name="donation_state" value="true"> 거래 완료</td></tr>
-	<tr>
-     <td>비밀 번호</td> 
-     <td><input type="password" name="pwd" size="15" maxlength="15">
-      수정 시에는 비밀번호가 필요합니다.</td>
-    </tr>
-	<tr>
-     <td colspan="2" height="5"><hr/></td>
-    </tr>
-	<tr>
-     <td colspan="2">
-	  <input type="button" value="수정완료" onClick="check()">
-      <input type="reset" value="다시수정"> 
-      <input type="button" value="뒤로" onClick="history.go(-1)">
-	 </td>
-    </tr> 
-   </table>
-  </td>
- </tr>
-</table>
-<input type="hidden" name="userID" value="<%=userID%>" size="30" maxlength="20">
- <input type="hidden" name="nowPage" value="<%=nowPage %>">
- <input type='hidden' name="personal_donation_id" value="<%=personal_donation_id%>">
-</form> 
+			<div class="donation-read-box">
+				<div id="donation-read-frm">
+					<div class="donation-read-table-box radiooo">
+						<p
+							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">수정하기</p>
 
-		</div>
-	</div>
-	<footer>
-
-		<div class="container">
-			<div class="row mt-5 pt-5 align-items-center">
-				<div class="col-md-6 text-md-left">
-					<p>
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						<a href="index.html">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://untree.co/" target="_blank" class="text-primary">Book,give</a>
-					</p>
+						<form name="updateFrm" method="post" action="PDUpdate">
+							<table width="100%;">
+								<tr>
+									<td>제 목</td>
+									<td style="font-size: 15px;"><input name="title" size="50"
+										value="<%=title%>" maxlength="50"></td>
+								<tr>
+									<td>내 용</td>
+									<td style="font-size: 15px;"><textarea name="content" rows="10" cols="50"><%=content%></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>거래 상태</td>
+									<td style="font-size: 15px;">
+									<input type="radio" name="donation_state"
+										value="false" checked="checked"> 진행중 &ensp; <input
+										type="radio" name="donation_state" value="true"> 거래 완료</td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td style="font-size: 15px;"><input type="password" name="pwd" size="15"
+										maxlength="15">&nbsp;수정 시에는 비밀번호가 필요합니다.</td>
+								</tr>
+								<tr>
+									<td colspan="2" height="5"><hr /></td>
+								</tr>
+								<tr>
+									<td colspan="2"><a style="color: #000000;" type="button" onClick="check()">[ 수정 완료 | 
+									</a> <a style="color: #000000;" type="reset">다시 수정 | </a> <a style="color: #000000;" type="button"
+										onClick="history.go(-1)">뒤로 ]</a></td>
+								</tr>
+							</table>
+							<input type="hidden" name="userID" value="<%=userID%>" size="30"
+								maxlength="20"> <input type="hidden" name="nowPage"
+								value="<%=nowPage%>"> <input type='hidden'
+								name="personal_donation_id" value="<%=personal_donation_id%>">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+		<footer>
 
-	</footer>
+			<div class="container">
+				<div class="row mt-5 pt-5 align-items-center">
+					<div class="col-md-6 text-md-left">
+						<p>
+							Copyright &copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							<a href="index.html">Book,give</a>. All Rights Reserved. Design
+							by <a href="https://untree.co/" target="_blank"
+								class="text-primary">Book,give</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</footer>
 </body>
 </html>

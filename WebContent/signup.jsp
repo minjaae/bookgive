@@ -97,18 +97,19 @@
 									<col width="30%" />
 									<col width="auto" />
 								</colgroup>
-								<tbody>
-									<tr>
+								<tbody class="radiooo">
+									<tr rowspan="2">
 										<th><span>role</span></th>
-										<td>
-											<div class="radio-box">
-
-												<input type="radio" id="user" name="role" value="1" checked />
-												<label for="user">일반 회원</label> 
-												<input type="radio" id="agency" name="role" value="2" /> 
-												<label for="agency">기관</label>
-
-											</div>
+										<td style="font-size: 14px;">
+												<input type="radio" id="user" name="role" value="1"
+													checked="checked"> &nbsp; 일반 회원 
+										</td>
+									</tr>
+									<tr>
+										<th></th>
+										<td style="font-size: 14px;">
+												<input type="radio"
+													id="agency" name="role" value="2"> &nbsp; 기관
 										</td>
 									</tr>
 
@@ -190,8 +191,9 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights
+						Reserved. Design by <a href="https://github.com/bookgive"
+							target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>

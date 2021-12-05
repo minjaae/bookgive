@@ -823,6 +823,17 @@ none
 	outline : none;
 }
 
+.donation-read-table-box input {
+	border : 1px solid #e6e4bc;
+    resize:none;
+    margin : 0 auto;
+    padding-left : 10px;
+}
+
+.donation-read-table-box input:focus {
+	outline : none;
+}
+
 .donation-read-table-box table {
 	background-color: #fafaf0;
 	font-size: 13pt;
@@ -866,6 +877,25 @@ none
 	text-decoration: none;
 	padding : 5px;
 }
+
+.radiooo input[type=radio] {
+            background-color: #FFFF;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 1px solid rgb(216, 216, 216);
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+}
+.radiooo input[type=radio]:checked {
+            background-color: #537755;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+        }
 
 /* �뿬湲곌퉴吏� */
 dt {

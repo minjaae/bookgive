@@ -73,21 +73,22 @@
 		<div>
 			<form name="postFrm" method="post" action="iboardPost"
 				enctype="multipart/form-data">
-				<div class="container">
+				<div class="container radiooo" >
 					<table
-						style="text-align: center; border: 1px solid #dddddd; width: 100%">
+						style="text-align: center; border: 1px solid #dddddd; width: 100%;">
 						<thead>
 							<tr>
 								<th colspan="2"
-									style="background-color: #FAFAF0; text-align: center; width: 100%;">기관
+									style="background-color: #FAFAF0; text-align: center; width: 100%;
+									padding : 5px 10px 5px 10px;">기관
 									기부 게시판 책 등록</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td><input type="text" placeholder="책 제목을 입력해주세요."
+								<td style="font-size : 13pt; font-weight : bold;"> 제목 &nbsp; <input type="text" placeholder="책 제목을 입력해주세요."
 									name="title" maxlength="50"
-									style="width: 100%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+									style="width: 95%; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
 							</tr>
 							<tr>
 								<td><textarea placeholder="책의 상태를 자세히 작성해주세요."
@@ -95,20 +96,18 @@
 										style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 							</tr>
 							<tr>
-								<td>책상태  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;
-												
-<input type="radio" name="book_status" value="good" checked="checked"> good &emsp;&emsp;
-<input type="radio" name="book_status" value="soso"> soso &emsp;&emsp;
-<input type="radio" name="book_status" value="bad"> bad &nbsp;
-
-							 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;</td>
+								<td style="text-align : left;">책상태  &nbsp;&nbsp;&nbsp; <input type="radio" name="book_status"
+									value="good" checked="checked"> good 
+									<input type="radio" name="book_status" value="soso"> soso  
+									<input type="radio" name="book_status" value="bad"> bad 
+								</td>
 							</tr>
 							<tr>
-								<td>비밀번호<input type="password" name="pass" maxlength="30"
-									style="width: 60%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+								<td style="text-align : left;">비밀번호<input type="password" name="pass" maxlength="30"
+									style="width: 20%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
 							</tr>
 							<tr>
-								<td>파일 찾기<input type="file" name="filename" size="50"
+								<td style="text-align : left;">파일찾기<input type="file" name="filename" size="50"
 									maxlength="30"
 									style="width: 60%; margin-left: 1rem; margin-top: 1rem;"></td>
 							</tr>
@@ -134,8 +133,9 @@
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://github.com/bookgive/" target="_blank" class="text-primary">Book,give</a>
+						<a href="https://github.com/bookgive">Book,give</a>. All Rights
+						Reserved. Design by <a href="https://github.com/bookgive/"
+							target="_blank" class="text-primary">Book,give</a>
 					</p>
 				</div>
 			</div>
