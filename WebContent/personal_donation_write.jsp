@@ -109,11 +109,12 @@
 									maxlength="30"
 									style="width: 60%; margin-left: 1rem; margin-top: 1rem;"></td>
 							</tr>
+							<tr><td>&nbsp;</td></tr>
 							<tr>
-								<td colspan="2" align="center"><input class="btn-write"
-									type="submit" value="등록"> <input class="btn-write"
-									type="reset" value="다시쓰기"> <input class="btn-write"
-									type="button" value="리스트"
+								<td colspan="2" align="center">
+								<input class="btn-write" type="submit" value="등록"> 
+								<input class="btn-write" type="reset" value="다시쓰기"> 
+								<input class="btn-write" type="button" value="리스트"
 									onClick="javascript:location.href='personal_donation.jsp'">
 								</td>
 							</tr>

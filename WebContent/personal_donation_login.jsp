@@ -151,12 +151,9 @@
 
 
 	<div>
-		<input class="btn-write" type="submit" value="글 쓰기"
-			onClick="location.href='personal_donation_write.jsp'"
-			style="left: 81%;">
 		<div class="container">
-			<table
-				style="text-align: center; border: 1px solid #dddddd; width: 100%; margin: 0 auto;">
+			<table class="donation-table"
+				style="text-align: center; width: 100%; margin: 0 auto;">
 				<%
 					vlist = PD.getBoardList(keyField, keyWord, start, end);
 					listSize = vlist.size();//브라우저 화면에 보여질 게시물갯수
@@ -213,15 +210,21 @@
 				%>
 			</table>
 		</div>
-
 	</div>
 
-	<footer>
-
-		<table border="0" width="100%" cellpadding="2" cellspacing="0">
-			<tr>
-				<td align="center">
-					<!-- 페이징 및 블럭 처리 Start--> <%
+	<!-- 글쓰기, 처음으로 -->
+	<div>
+		<div class="write-frm-btn container">
+			<table style="border: 0; width: 100%;">
+				<tr>
+					<td style="text-align: right;">
+					  <input type="button" value="글쓰기" onClick="location.href='personal_donation_write.jsp'">
+					  <input type="button" value="처음으로" onClick="location.href='personal_donation.jsp'">
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<!-- 페이징 및 블럭 처리 Start--> <%
  	int pageStart = (nowBlock - 1) * pagePerBlock + 1; //하단 페이지 시작번호
  	int pageEnd = ((pageStart + pagePerBlock) <= totalPage) ? (pageStart + pagePerBlock) : totalPage + 1;
  	//하단 페이지 끝번호
@@ -247,14 +250,14 @@
  	}
  %>&nbsp; <%
  	}
- %> <!-- 페이징 및 블럭 처리 End-->
-				<td align="right"><a href="personal_donation_write.jsp">[글쓰기]</a>
-					<a href="personal_donation.jsp">[처음으로]</a></td>
-				</td>
-			</tr>
-		</table>
-
-		<hr width="600" />
+ %>
+					</td>
+					<!-- 페이징 및 블럭 처리 End-->
+				</tr>
+			</table>
+		</div>
+		
+		&nbsp;
 		<form name="searchFrm" method="get" action="personal_donation.jsp">
 			<table align="center" width="600" cellpadding="4" cellspacing="0">
 				<tr>
@@ -279,6 +282,10 @@
 				type="hidden" name="keyField" value="<%=keyField%>"> <input
 				type="hidden" name="keyWord" value="<%=keyWord%>">
 		</form>
+		
+	</div>
+
+	<footer>
 
 		<div class="container">
 			<div class="row mt-5 pt-5 align-items-center">

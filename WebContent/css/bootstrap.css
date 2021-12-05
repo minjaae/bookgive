@@ -755,6 +755,105 @@ none
    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* 글쓰기, 처음으로 */
+.write-frm-btn table td {
+	align : right;
+}
+.write-frm-btn table input {
+	font-size : 13px;
+	border : 1px solid #fafaf0;
+	background-color : #fafaf0;
+	color : #5c5c5c;
+	margin-top : 10px;
+	margin-left : 10px;
+	padding : 5px 10px 5px 10px;
+}
+.write-frm-btn table input:hover {
+	color : #1c1c1c;
+}
+
+/* 게시판 목록 */
+.donation-table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #fafaf0;
+  border-bottom: 1px solid #c3b29e;
+  margin: 20px 10px;
+}
+
+.donation-table th, td {
+    padding: 10px;
+  }
+
+/* 게시판 불러와서 읽기 */
+.donation-read-box {
+	position: relative;
+	background-color: #fafaf0;
+	height: 600px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#donation-read-frm {
+	position: absolute;
+	background-color: #fafaf0;
+	top: 100px;
+	left: 100px;
+	width: 80%;
+	height: 400px;
+}
+
+.donation-read-table-box {
+	position: absolute;
+	background-color: #fafaf0;
+	width: 100%;
+}
+
+}
+.donation-read-table-box table {
+	background-color: #fafaf0;
+	font-size: 13pt;
+	color: #666;
+	text-decoration: none;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+}
+
+.donation-read-table-box table tr {
+	background-color: #fafaf0;
+	font-size: 13pt;
+	color: #666;
+	text-decoration: none;
+	padding : 5px;
+}
+
+.donation-read-table-box table td {
+	background-color: #fafaf0;
+	font-size: 13pt;
+	color: #666;
+	text-decoration: none;
+	padding : 5px;
+}
+
+.donation-read-table-box table th {
+	background-color: #fafaf0;
+	font-size: 13pt;
+	color: #666;
+	text-decoration: none;
+	padding : 5px;
+}
+
+.donation-read-table-box table pre {
+	background-color: #fafaf0;
+	font-size: 13pt;
+	color: #666;
+	text-decoration: none;
+	padding : 5px;
+}
 
 /* �뿬湲곌퉴吏� */
 dt {
