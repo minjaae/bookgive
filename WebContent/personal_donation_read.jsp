@@ -95,41 +95,41 @@
 			<div class="donation-read-box">
 				<div id="donation-read-frm">
 					<div class="donation-read-table-box">
-						<table align="center">
-							<tr>
-								<td align="center">제 목:</td>
-								<td><%=title%></td>
-							</tr>
-							<tr>
-								<td align="center">아이디:</td>
-								<td><%=userID%></td>
-							</tr>
-							<tr>
-								<td align="center">작성일:</td>
-								<td><%=created_at%></td>
-							</tr>
-							<tr>
-								<td align="center">첨부파일</td>
-								<td>
-									<%
-										if (filename != null && !filename.equals("")) {
+						<p
+							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">
+							<%=title%></p>
+						<p style="background: #fafaf0; font-size: 17px; color: #000;">
+							아이디 |
+							<%=userID%>
+							&nbsp; 작성일 |
+							<%=created_at%>
+							&nbsp; 조회수 |
+							<%=count%>
+						</p>
+						
+						<hr>
+				
+						<textarea readonly><%=content%></textarea>
+						
+						<p style="background: #fafaf0; font-size: 15px; color: #000;">
+							책 상태  | good <br> 첨부파일 |
+							<% if (filename != null && !filename.equals("")) {
 									%> <a href="javascript:down('<%=filename%>')"><%=filename%></a>
 									&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)
 								</font> <% } else { %> 등록된 파일이 없습니다.<% } %>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" align="center"><pre><%=content%></pre></td>
-							</tr>
+						</p>
+						
+						<hr>
 
+						<table align="center">
 							<tr>
 								<td align="center" colspan="2">
-									<hr /> [ <a href="javascript:list()" style="color: #000000;">리스트</a>
-									| <a
+									[ <a font-size="12pt" href="javascript:list()" style="color: #000000;">리스트</a>
+									| <a font-size="12pt"
 									href="personal_donation_update.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>"
-									style="color: #000000;">수 정</a> | <a
+									style="color: #000000;">수 정</a> | <a font-size="12pt"
 									href="personal_donation_reply.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>"
-									style="color: #000000;">답변</a> | <a
+									style="color: #000000;">답변</a> | <a font-size="12pt"
 									href="personal_donation_delete.jsp?nowPage=<%=nowPage%>&personal_donation_id=<%=personal_donation_id%>"
 									style="color: #000000;">삭 제</a> ]<br />
 								</td>

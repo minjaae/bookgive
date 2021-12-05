@@ -790,7 +790,7 @@ none
 .donation-read-box {
 	position: relative;
 	background-color: #fafaf0;
-	height: 600px;
+	height: 800px;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -810,7 +810,19 @@ none
 	width: 100%;
 }
 
+.donation-read-table-box textarea {
+	border : 1px solid #e6e4bc;
+	width:100%; 
+	height:300px; 
+    resize:none;
+    margin : 0 auto;
+    padding : 10px;
 }
+
+.donation-read-table-box textarea:focus {
+	outline : none;
+}
+
 .donation-read-table-box table {
 	background-color: #fafaf0;
 	font-size: 13pt;
