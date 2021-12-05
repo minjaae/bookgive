@@ -29,7 +29,7 @@
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
 
-<title>기업 기부 게시판 글쓰기</title>
+<title>기관 기부 게시판 글쓰기</title>
 </head>
 <body>
 	<%

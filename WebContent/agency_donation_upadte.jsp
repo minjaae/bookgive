@@ -2,19 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-	
+
 <%@ page import="java.util.*, bookgive.*"%>
-	<%@page import="bookgive.InstitutionDonationBean"%>
-<% 
-request.setCharacterEncoding("EUC-KR");
-String id = (String) session.getAttribute("idKey");
-	  int num = Integer.parseInt(request.getParameter("num"));
-	  System.out.println(num);
-	  String nowPage = request.getParameter("nowPage");
-	  InstitutionDonationBean bean = (InstitutionDonationBean)session.getAttribute("bean");
-	  String subject = bean.getTitle();
-	  String name = bean.getUserID(); 
-	  String content = bean.getContent(); 
+<%@page import="bookgive.InstitutionDonationBean"%>
+<%
+	request.setCharacterEncoding("EUC-KR");
+	String id = (String) session.getAttribute("idKey");
+	int num = Integer.parseInt(request.getParameter("num"));
+	System.out.println(num);
+	String nowPage = request.getParameter("nowPage");
+	InstitutionDonationBean bean = (InstitutionDonationBean) session.getAttribute("bean");
+	String subject = bean.getTitle();
+	String name = bean.getUserID();
+	String content = bean.getContent();
 %>
 
 <html>
@@ -39,34 +39,37 @@ String id = (String) session.getAttribute("idKey");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css?after"
 	type="text/css">
-	
+
 <script>
 	function check() {
-	   if (document.updateFrm.pass.value == "") {
-		 alert("수정을 위해 패스워드를 입력하세요.");
-		 document.updateFrm.pass.focus();
-		 return false;
-		 }
-	   document.updateFrm.submit();
+		if (document.updateFrm.pass.value == "") {
+			alert("수정을 위해 패스워드를 입력하세요.");
+			document.updateFrm.pass.focus();
+			return false;
+		}
+		document.updateFrm.submit();
 	}
 </script>
 
 <title>about</title>
 </head>
 <body>
-   
+
 	<nav>
-		<div class="icon container" style="cursor: pointer;" onclick="location.href='login.jsp';">
-			<i class="fas fa-sign-in-alt"></i>
+		<div class="icon container" style="cursor: pointer;"
+			onclick="location.href='logout.jsp';">
+			<i class="fas fa-sign-out-alt"></i>
 		</div>
 		<%
-			if(id != null){
+			if (id != null) {
 		%>
-		<div align="right"> 
-        	<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp; </div>
-  		<%
-  			}
+		<div align="right">
+			<strong><%=id%></strong>님이 로그인 하셨습니다.&nbsp;&nbsp;
+		</div>
+		<%
+			}
 		%>
+
 		<div class="mainLogo container">
 			<div>
 				<a href="bookgive.jsp"><p>책,</p>도움</a>
@@ -84,48 +87,50 @@ String id = (String) session.getAttribute("idKey");
 	</nav>
 	<div>
 		<div class="container">
-			<table width="600" cellpadding="3">
-</table>
-<form name="updateFrm" method="post" action="iboardUpdate">
-<table width="600" cellpadding="7">
- <tr>
-  <td>
-   <table>
-	<tr>
-     <td>제 목</td>
-     <td width="20%">
-	  <input name="title" size="50" value="<%=subject%>" maxlength="50">
-	 </td>
-    <tr>
-     <td  width="80%">내 용</td>
-     <td>
-	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
-	 </td>
-    </tr>
-	<tr>
-     <td>비밀 번호</td> 
-     <td><input type="password" name="pass" size="15" maxlength="15">
-      수정 시에는 비밀번호가 필요합니다.</td>
-    </tr>
-	<tr>
-     <td colspan="2" height="5"><hr/></td>
-    </tr>
-	<tr>
-     <td colspan="2">
-	  <input type="button" value="수정완료" onClick="check()">
-      <input type="reset" value="다시수정"> 
-      <input type="button" value="뒤로" onClick="history.go(-1)">
-	 </td>
-    </tr> 
-   </table>
-  </td>
- </tr>
-</table>
-<input type="hidden" name="userID" value="<%=name%>" size="30" maxlength="20">
- <input type="hidden" name="nowPage" value="<%=nowPage %>">
- <input type='hidden' name="num" value="<%=num%>">
-</form> 
+			<div class="donation-read-box">
+				<div id="donation-read-frm">
+					<div class="donation-read-table-box">
+						<p
+							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">수정하기</p>
+						<form name="updateFrm" method="post" action="iboardUpdate">
+							<table width="100%;">
+								<tr>
+									<td>제 목</td>
+									<td style="font-size: 15px;"><input name="title" size="50" value="<%=subject%>"
+										maxlength="50"></td>
+								<tr>
+									<td>내 용</td>
+									<td style="font-size: 15px;"><textarea name="content" rows="10" cols="50"><%=content%></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>거래상태</td>
+									<td style="font-size: 15px;">진행중</td>
+								<tr>
+								<tr>
+									<td>비밀번호</td>
+									<td style="font-size: 13px;"><input type="password"
+										name="pass" size="15" maxlength="15">&nbsp;수정 시에는
+										비밀번호가 필요합니다.</td>
+								</tr>
+								<tr>
+									<td colspan="2" height="5"><hr /></td>
+								</tr>
+								<tr>
+									<td colspan="2"><a style="color: #000000;" type="button" onClick="check()">[ 수정 완료 | 
+									</a> <a style="color: #000000;" type="reset">다시 수정 | </a> <a style="color: #000000;" type="button"
+										onClick="history.go(-1)">뒤로 ]</a></td>
+								</tr>
+							</table>
+							<input type="hidden" name="userID" value="<%=name%>" size="30"
+								maxlength="20"> <input type="hidden" name="nowPage"
+								value="<%=nowPage%>"> <input type='hidden' name="num"
+								value="<%=num%>">
+						</form>
 
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<footer>

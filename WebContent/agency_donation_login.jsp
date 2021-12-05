@@ -147,11 +147,9 @@
 		</div>
 	</nav>
 	<div>
-		<input class="btn-write" type="submit" value="글 쓰기"
-			OnClick="location.href='agency_write.jsp'" style="left: 81%;">
 		<div class="container">
-			<table width=100%
-				style="text-align: center; border: 1px solid #dddddd; margin: 0 auto;">
+			<table class="donation-table"
+				style="text-align: center; width: 100%; margin: 0 auto;">
 				<%
 					vlist = bMgr.getBoardList(keyField, keyWord, start, end);
 					listSize = vlist.size();//브라우저 화면에 보여질 게시물갯수
@@ -184,7 +182,7 @@
 							int institutionDonationId = bean.getInstitutionDonationId();
 							String title = bean.getTitle();
 							String name = bean.getUserID();
-							Date regdate = bean.getCreatedAt();	
+							Date regdate = bean.getCreatedAt();
 							int depth = bean.getDepth();
 							boolean donation_state = bean.getDonationState();
 							String state;
@@ -218,98 +216,100 @@
 				<%
 					} //if
 				%>
+			</table>
 
+		</div>
+	</div>
+	<!-- 글쓰기, 처음으로 -->
+	<div>
+		<div class="write-frm-btn container">
+			<table style="border: 0; width: 100%;">
 				<tr>
-					<td colspan="2"><br />
-					<br /></td>
+					<td style="text-align: right;"><input type="button"
+						value="글쓰기" onClick="location.href='agency_write.jsp'">
+						<input type="button" value="처음으로"
+						onClick="location.href='agency_donation_login.jsp'"></td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<!-- 페이징 및 블럭 처리 Start--> <%
  	int pageStart = (nowBlock - 1) * pagePerBlock + 1; //하단 페이지 시작번호
  	int pageEnd = ((pageStart + pagePerBlock) <= totalPage) ? (pageStart + pagePerBlock) : totalPage + 1;
  	//하단 페이지 끝번호
  	if (totalPage != 0) {
  		if (nowBlock > 1) {
- %> <a
-						href="javascript:block('<%=nowBlock - 1%>')">prev...</a>
-						<%
-							}
-						%>&nbsp; <%
+ %> <a href="javascript:block('<%=nowBlock - 1%>')">prev...</a> <%
+ 	}
+ %>&nbsp; <%
  	for (; pageStart < pageEnd; pageStart++) {
- %> <a
-						href="javascript:pageing('<%=pageStart%>')"> <%
+ %> <a href="javascript:pageing('<%=pageStart%>')"> <%
  	if (pageStart == nowPage) {
- %><font
-							color="black"> <%
+ %><font color="black"> <%
  	}
  %> [<%=pageStart%>] <%
  	if (pageStart == nowPage) {
- %></font>
-							<%
-								}
-							%></a> <%
+ %></font> <%
+ 	}
+ %></a> <%
  	} //for
  %>&nbsp; <%
  	if (totalBlock > nowBlock) {
- %> <a
-						href="javascript:block('<%=nowBlock + 1%>')">.....next</a> <%
+ %> <a href="javascript:block('<%=nowBlock + 1%>')">.....next</a> <%
  	}
- %>&nbsp;
-						<%
-							}
-						%> <!-- 페이징 및 블럭 처리 End-->
+ %>&nbsp; <%
+ 	}
+ %>
 					</td>
+					<!-- 페이징 및 블럭 처리 End-->
 				</tr>
-
 			</table>
-
-			<form name="searchFrm" method="get" action="agency_donation.jsp">
-				<table align="center" width="80%" cellpadding="40" cellspacing="0">
-					<tr>
-						<td align="center" valign="bottom"><select name="keyField"
-							size="1">
-								<option value="userID">아이디</option>
-								<option value="title">제 목</option>
-								<option value="content">내 용</option>
-						</select> <input size="16" name="keyWord"> <input type="button"
-							value="찾기" onClick="javascript:check()"> <input
-							type="hidden" name="nowPage" value="1"></td>
-					</tr>
-				</table>
-			</form>
-			<form name="listFrm" method="post">
-				<input type="hidden" name="reload" value="true"> <input
-					type="hidden" name="nowPage" value="1">
-			</form>
-			<form name="readFrm" method="get">
-				<input type="hidden" name="institutionDonationId"> <input
-					type="hidden" name="nowPage" value="<%=nowPage%>"> <input
-					type="hidden" name="keyField" value="<%=keyField%>"> <input
-					type="hidden" name="keyWord" value="<%=keyWord%>">
-			</form>
-
 		</div>
-	</div>
 
-	<footer>
+		&nbsp;
+		<form name="searchFrm" method="get" action="agency_donation.jsp">
+            <table align="center" width="80%" cellpadding="40" cellspacing="0">
+               <tr>
+                  <td align="center" valign="bottom"><select name="keyField"
+                     size="1">
+                        <option value="userID">아이디</option>
+                        <option value="title">제 목</option>
+                        <option value="content">내 용</option>
+                  </select> <input size="16" name="keyWord"> <input type="button"
+                     value="찾기" onClick="javascript:check()"> <input
+                     type="hidden" name="nowPage" value="1"></td>
+               </tr>
+            </table>
+         </form>
+         <form name="listFrm" method="post">
+            <input type="hidden" name="reload" value="true"> <input
+               type="hidden" name="nowPage" value="1">
+         </form>
+         <form name="readFrm" method="get">
+            <input type="hidden" name="institutionDonationId"> <input
+               type="hidden" name="nowPage" value="<%=nowPage%>"> <input
+               type="hidden" name="keyField" value="<%=keyField%>"> <input
+               type="hidden" name="keyWord" value="<%=keyWord%>">
+         </form>
 
-		<div class="container">
-			<div class="row mt-5 pt-5 align-items-center">
-				<div class="col-md-6 text-md-left">
-					<p>
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						<a href="https://github.com/bookgive">Book,give</a>. All Rights
-						Reserved. Design by <a href="https://github.com/bookgive"
-							target="_blank" class="text-primary">Book,give</a>
-					</p>
+
+		<footer>
+
+			<div class="container">
+				<div class="row mt-5 pt-5 align-items-center">
+					<div class="col-md-6 text-md-left">
+						<p>
+							Copyright &copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							<a href="https://github.com/bookgive">Book,give</a>. All Rights
+							Reserved. Design by <a href="https://github.com/bookgive"
+								target="_blank" class="text-primary">Book,give</a>
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
 
-	</footer>
+		</footer>
 </body>
 </html>

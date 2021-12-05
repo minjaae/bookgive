@@ -93,96 +93,99 @@
 	</nav>
 	<div>
 		<div class="container">
-			<table>
+			<div class="donation-read-box">
+				<div id="donation-read-frm">
+					<div class="donation-read-table-box">
+						<p
+							style="background: #fafaf0; font-weight: bold; font-size: 30px; color: #000;">
+							<%=subject%></p>
+						<p style="background: #fafaf0; font-size: 17px; color: #000;">
+							아이디 |
+							<%=name%>
+							&nbsp; 작성일 |
+							<%=regdate%>
+							&nbsp; 조회수 |
+							<%=count%>
+						</p>
 
-				<tr>
-					<td align="center">아이디</td>
-					<td><%=name%></td>
-				</tr>
-				<tr>
-					<td align="center">작성일</td>
-					<td><%=regdate%></td>
-				</tr>
+						<hr>
 
+						<textarea readonly><%=content%></textarea>
 
-				<tr>
-					<td align="center">제 목</td>
-					<td><%=subject%></td>
-				</tr>
-				<tr>
-					<td align="center">첨부파일</td>
-					<td>
-						<%
+						<p style="background: #fafaf0; font-size: 15px; color: #000;">
+							책 상태 | good <br> 첨부파일 |
+							<%
 							if (filename != null && !filename.equals("")) {
-						%> <a
-						href="javascript:down('<%=filename%>')"><%=filename%></a>
-						&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)
-					</font> <%
- 	} else {
- %> 등록된 파일이 없습니다.<%
- 	}
- %>
-					</td>
-				</tr>
+						%>
+							<a href="javascript:down('<%=filename%>')"><%=filename%></a>
+							&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)
+							</font>
+							<%
+								} else {
+							%>
+							등록된 파일이 없습니다.<%
+								}
+							%>
+						</p>
 
+						<table>
 
-				<tr>
-					<td><br />
-					<pre><%=content%></pre><br /></td>
-				</tr>
+							<tr>
+								<td align="center" colspan="2">
+									<hr /> [ <a href="javascript:list()" style="color: #000000;">리스트</a>
+									| <a
+									href="agency_donation_upadte.jsp?nowPage=<%=nowPage%>&num=<%=num%>"
+									style="color: #000000;">수 정</a> | <a
+									href="agency_donation_reply.jsp?nowPage=<%=nowPage%>"
+									style="color: #000000;">답 변</a> | <a
+									href="agency_donation_delete.jsp?nowPage=<%=nowPage%>&num=<%=num%>"
+									style="color: #000000;">삭 제</a> ]<br />
+								</td>
+							</tr>
 
-				<tr>
-					<td align="center" colspan="2">
-						<hr /> [ <a href="javascript:list()" style="color: #000000;">리스트</a>
-						| <a
-						href="agency_donation_upadte.jsp?nowPage=<%=nowPage%>&num=<%=num%>"
-						style="color: #000000;">수 정</a> | <a
-						href="agency_donation_reply.jsp?nowPage=<%=nowPage%>"
-						style="color: #000000;">답 변</a> | <a
-						href="agency_donation_delete.jsp?nowPage=<%=nowPage%>&num=<%=num%>"
-						style="color: #000000;">삭 제</a> ]<br />
-					</td>
-				</tr>
+						</table>
 
-			</table>
+						<form name="downFrm" action="agency_donation_download.jsp"
+							method="post">
+							<input type="hidden" name="filename">
+						</form>
 
-			<form name="downFrm" action="agency_donation_download.jsp"
-				method="post">
-				<input type="hidden" name="filename">
-			</form>
+						<form name="listFrm" method="post" action="agency_donation.jsp">
+							<input type="hidden" name="nowPage" value="<%=nowPage%>">
+							<%
+								if (!(keyWord == null || keyWord.equals(""))) {
+							%>
+							<input type="hidden" name="keyField" value="<%=keyField%>">
+							<input type="hidden" name="keyWord" value="<%=keyWord%>">
+							<%
+								}
+							%>
+						</form>
 
-			<form name="listFrm" method="post" action="agency_donation.jsp">
-				<input type="hidden" name="nowPage" value="<%=nowPage%>">
-				<%
-					if (!(keyWord == null || keyWord.equals(""))) {
-				%>
-				<input type="hidden" name="keyField" value="<%=keyField%>">
-				<input type="hidden" name="keyWord" value="<%=keyWord%>">
-				<%
-					}
-				%>
-			</form>
-
-
-		</div>
-	</div>
-	<footer>
-
-		<div class="container">
-			<div class="row mt-5 pt-5 align-items-center">
-				<div class="col-md-6 text-md-left">
-					<p>
-						Copyright &copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						<a href="https://github.com/bookgive">Book,give</a>. All Rights Reserved. Design by
-						<a href="https://github.com/bookgive" target="_blank" class="text-primary">Book,give</a>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
+		</div>
 
-	</footer>
+		<footer>
+
+			<div class="container">
+				<div class="row mt-5 pt-5 align-items-center">
+					<div class="col-md-6 text-md-left">
+						<p>
+							Copyright &copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							<a href="https://github.com/bookgive">Book,give</a>. All Rights
+							Reserved. Design by <a href="https://github.com/bookgive"
+								target="_blank" class="text-primary">Book,give</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</footer>
 </body>
 </html>
