@@ -101,6 +101,11 @@
 	  <textarea name="content" rows="10" cols="50"><%=content%></textarea>
 	 </td>
     </tr>
+    <tr>
+	<td>거래 상태</td>
+	<td>
+<input type="radio" name="donation_state" value="false" checked="checked"> 진행중  &ensp;
+<input type="radio" name="donation_state" value="true"> 거래 완료</td></tr>
 	<tr>
      <td>비밀 번호</td> 
      <td><input type="password" name="pwd" size="15" maxlength="15">

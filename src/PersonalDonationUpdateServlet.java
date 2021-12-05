@@ -35,6 +35,7 @@ public class PersonalDonationUpdateServlet extends HttpServlet {
 		upBean.setTitle(request.getParameter("title"));
 		upBean.setContent(request.getParameter("content"));
 		upBean.setPWD(request.getParameter("pwd"));
+		upBean.setDonationState(Boolean.parseBoolean(request.getParameter("donation_state")));
 
 		String upPass = upBean.getPWD();
 		String inPass = bean.getPWD();

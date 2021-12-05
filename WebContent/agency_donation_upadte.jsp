@@ -85,9 +85,6 @@ String id = (String) session.getAttribute("idKey");
 	<div>
 		<div class="container">
 			<table width="600" cellpadding="3">
-  <tr>
-   <td bgcolor="#FF9018"  height="21" align="center">수정하기</td>
-  </tr>
 </table>
 <form name="updateFrm" method="post" action="iboardUpdate">
 <table width="600" cellpadding="7">

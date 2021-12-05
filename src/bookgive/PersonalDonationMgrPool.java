@@ -298,12 +298,13 @@ public class PersonalDonationMgrPool extends HttpServlet {
       String sql = null;
       try {
          con = pool.getConnection();
-         sql = "update personal_donation set userID=?,title=?,content=? where personal_donation_id=?";
+         sql = "update personal_donation set userID=?,title=?,content=?,donation_state=? where personal_donation_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, bean.getUserID());
          pstmt.setString(2, bean.getTitle());
          pstmt.setString(3, bean.getContent());
-         pstmt.setInt(4, bean.getPersonalDonationId());
+         pstmt.setBoolean(4, bean.getDonationState());
+         pstmt.setInt(5, bean.getPersonalDonationId());
          pstmt.executeUpdate();
       } catch (Exception e) {
          e.printStackTrace();
