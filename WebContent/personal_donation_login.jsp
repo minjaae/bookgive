@@ -170,7 +170,7 @@
 						<th
 							style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">조회수</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">작성일</th>
 						<th
 							style="background-color: #FAFAF0; text-align: center; width: 20%">거래상태</th>
 					</tr>
@@ -183,6 +183,7 @@
 							int personal_donation_id = bean.getPersonalDonationId();
 							String userid = bean.getUserID();
 							String title = bean.getTitle();
+							Date regdate = bean.getCreatedAt();	
 							int count = bean.getCount();
 							boolean donation_state = bean.getDonationState();
 							String state;
@@ -198,7 +199,7 @@
 						<td><a href="javascript:read('<%=personal_donation_id%>')"
 							style="color: #000000;"><%=title%></a></td>
 						<td align="center"><%=userid%></td>
-						<td align="center"><%=count%></td>
+						<td align="center"><%=regdate%></td>
 						<td align="center"><%=state%></td>
 					</tr>
 				</tbody>

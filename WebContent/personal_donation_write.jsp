@@ -95,10 +95,15 @@
 										name="content" maxlength="2048"
 										style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 							</tr>
+									
 							<tr>
-								<td>책 상태 <input type="text" placeholder=""
-									name="book_status" maxlength="30"
-									style="width: 60%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
+								<td>책상태 
+												
+<input type="radio" name="book_status" value="good" checked="checked"> good &nbsp;
+<input type="radio" name="book_status" value="soso"> soso &nbsp;
+<input type="radio" name="book_status" value="bad"> bad &nbsp;
+
+							
 							</tr>
 							<tr>
 								<td>비밀번호<input type="password" name="pwd" maxlength="30"

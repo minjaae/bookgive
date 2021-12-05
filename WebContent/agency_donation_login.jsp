@@ -169,10 +169,9 @@
 						<th
 							style="background-color: #FAFAF0; text-align: center; width: 20%">작성자</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">조회수</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">작성일</th>
 						<th
-							style="background-color: #FAFAF0; text-align: center; width: 20%">기부
-							요청</th>
+							style="background-color: #FAFAF0; text-align: center; width: 20%">거래상태</th>
 					</tr>
 				</thead>
 
@@ -185,8 +184,14 @@
 							int institutionDonationId = bean.getInstitutionDonationId();
 							String title = bean.getTitle();
 							String name = bean.getUserID();
+							Date regdate = bean.getCreatedAt();	
 							int depth = bean.getDepth();
-							int count = bean.getCount();
+							boolean donation_state = bean.getDonationState();
+							String state;
+							if (String.valueOf(donation_state) == "true")
+								state = "O";
+							else
+								state = "X";
 				%>
 
 				<tbody>
@@ -203,9 +208,8 @@
 							style="color: #000000;"><%=title%></a>
 						</td>
 						<td><%=name%></td>
-						<td><%=count%></td>
-						<td><input class="btn-request" type="submit" value="기부 요청하기"
-							onClick="alert('<%=name%>\n기부 요청되었습니다.')"></td>
+						<td><%=regdate%></td>
+						<td><%=state%></td>
 					</tr>
 					<%
 						} //for

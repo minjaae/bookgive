@@ -18,6 +18,7 @@
 	String title = bean.getTitle();
 	Date created_at = bean.getCreatedAt();
 	String content = bean.getContent();
+	String bookstatus = bean.getBookStatus();
 	String filename = bean.getFileName();
 	int filesize = bean.getFileSize();
 	int count = bean.getCount();
@@ -112,7 +113,7 @@
 						<textarea readonly><%=content%></textarea>
 						
 						<p style="background: #fafaf0; font-size: 15px; color: #000;">
-							책 상태  | good <br> 첨부파일 |
+							책 상태  | <%=bookstatus%> <br> 첨부파일 |
 							<% if (filename != null && !filename.equals("")) {
 									%> <a href="javascript:down('<%=filename%>')"><%=filename%></a>
 									&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)

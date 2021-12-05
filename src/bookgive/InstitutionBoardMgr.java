@@ -65,6 +65,9 @@ public class InstitutionBoardMgr {
 				bean.setRef(rs.getInt("ref"));
 				bean.setDepth(rs.getInt("depth"));
 				bean.setCount(rs.getInt("count"));
+				bean.setCreatedAt (rs.getDate("created_at"));
+	            bean.setDonationState (rs.getBoolean("donation_state"));
+	            bean.setBookStatus (rs.getString("book_status"));
 				vlist.add(bean);
 			}
 		} catch (Exception e) {
@@ -133,8 +136,8 @@ public class InstitutionBoardMgr {
 			}
 			String content = multi.getParameter("content");
 				content = UtilMgr.replace(content, "<", "&lt;");
-			sql = "insert institution_donation(userID,content,title,ref,pos,depth,created_at,pass,count,filename,filesize)";
-			sql += "values(?, ?, ?, ?, 0, 0, now(), ?, 0,?, ?)";
+			sql = "insert institution_donation(userID,content,title,ref,pos,depth,created_at,pass,count,filename,filesize,book_status,donation_state)";
+			sql += "values(?, ?, ?, ?, 0, 0, now(), ?, 0,?, ?, ? ,false)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, multi.getParameter("userID"));
 			pstmt.setString(2, content);
@@ -143,6 +146,7 @@ public class InstitutionBoardMgr {
 			pstmt.setString(5, multi.getParameter("pass"));
 			pstmt.setString(6, filename);
 			pstmt.setInt(7, filesize);
+			pstmt.setString(8, multi.getParameter("book_statue"));
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
