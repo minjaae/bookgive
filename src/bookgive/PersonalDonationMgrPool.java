@@ -75,6 +75,7 @@ public class PersonalDonationMgrPool extends HttpServlet {
              bean.setDepth(rs.getInt("depth"));
              bean.setContent (rs.getString("content"));
              bean.setCreatedAt (rs.getDate("created_at"));
+             bean.setPos(rs.getInt("pos"));
              bean.setDonationState (rs.getBoolean("donation_state"));
              bean.setBookStatus (rs.getString("book_status"));
              bean.setFileName (rs.getString("filename"));

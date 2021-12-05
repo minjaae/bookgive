@@ -68,6 +68,7 @@ public class InstitutionBoardMgr {
 				bean.setCreatedAt (rs.getDate("created_at"));
 	            bean.setDonationState (rs.getBoolean("donation_state"));
 	            bean.setBookStatus (rs.getString("book_status"));
+	            bean.setPos(rs.getInt("pos"));
 				vlist.add(bean);
 			}
 		} catch (Exception e) {

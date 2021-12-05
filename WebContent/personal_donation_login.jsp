@@ -177,21 +177,23 @@
 				</thead>
 				<%
 					for (int i = 0; i < numPerPage; i++) {
-							if (i == listSize)
-								break;
-							PersonalDonationBean bean = vlist.get(i);
-							int personal_donation_id = bean.getPersonalDonationId();
-							String userid = bean.getUserID();
-							String title = bean.getTitle();
-							Date regdate = bean.getCreatedAt();	
-							int count = bean.getCount();
-							boolean donation_state = bean.getDonationState();
-							String state;
-							if (String.valueOf(donation_state) == "true")
-								state = "O";
-							else
-								state = "X";
-				%>
+						if (i == listSize)
+							break;
+						PersonalDonationBean bean = vlist.get(i);
+						int personal_donation_id = bean.getPersonalDonationId();
+						String userid = bean.getUserID();
+						int pos = bean.getPos();
+						String title = bean.getTitle();
+						Date regdate = bean.getCreatedAt();	
+						int count = bean.getCount();
+						boolean donation_state = bean.getDonationState();
+						String state;
+						if (String.valueOf(donation_state) == "true")
+							state = "O";
+						else
+							state = "X";
+						if(pos !=0) state="";
+			%>
 				<tbody>
 					<tr>
 						<td align="center"><%=totalRecord - ((nowPage - 1) * numPerPage) - i%>

@@ -109,7 +109,7 @@
 							<input type="hidden" name="nowPage" value="<%=nowPage%>">
 							<input type="hidden" name="ref" value="<%=bean.getRef()%>">
 							<input type="hidden" name="pos" value="<%=bean.getPos()%>">
-							<input type="hidden" name="userID" value="<%=bean.getUserID()%>">
+							<input type="hidden" name="userID" value="<%=id%>">
 							<input type="hidden" name="depth" value="<%=bean.getDepth()%>">
 						</form>
 					</div>

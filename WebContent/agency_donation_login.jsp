@@ -176,21 +176,23 @@
 
 				<%
 					for (int i = 0; i < numPerPage; i++) {
-							if (i == listSize)
-								break;
-							InstitutionDonationBean bean = vlist.get(i);
-							int institutionDonationId = bean.getInstitutionDonationId();
-							String title = bean.getTitle();
-							String name = bean.getUserID();
-							Date regdate = bean.getCreatedAt();
-							int depth = bean.getDepth();
-							boolean donation_state = bean.getDonationState();
-							String state;
-							if (String.valueOf(donation_state) == "true")
-								state = "O";
-							else
-								state = "X";
-				%>
+						if (i == listSize)
+							break;
+						InstitutionDonationBean bean = vlist.get(i);
+						int institutionDonationId = bean.getInstitutionDonationId();
+						String title = bean.getTitle();
+						String name = bean.getUserID();
+						int pos = bean.getPos();
+						Date regdate = bean.getCreatedAt();
+						int depth = bean.getDepth();
+						boolean donation_state = bean.getDonationState();
+						String state;
+						if (String.valueOf(donation_state) == "true")
+							state = "O";
+						else
+							state = "X";
+						if(pos !=0) state="";
+			%>
 
 				<tbody>
 					<tr>

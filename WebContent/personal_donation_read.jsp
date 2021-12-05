@@ -22,6 +22,7 @@
 	String filename = bean.getFileName();
 	int filesize = bean.getFileSize();
 	int count = bean.getCount();
+	int pos = bean.getPos();
 	session.setAttribute("bean", bean);//게시물을 세션에 저장
 %>
 <html>
@@ -113,13 +114,13 @@
 						<textarea readonly><%=content%></textarea>
 						
 						<p style="background: #fafaf0; font-size: 15px; color: #000;">
-							책 상태  | <%=bookstatus%> <br> 첨부파일 |
+							<%if (pos == 0) {%>
+							책 상태 | <%=bookstatus%> <br> <%	}%>첨부파일 |
 							<% if (filename != null && !filename.equals("")) {
 									%> <a href="javascript:down('<%=filename%>')"><%=filename%></a>
 									&nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)
 								</font> <% } else { %> 등록된 파일이 없습니다.<% } %>
 						</p>
-						
 						<hr>
 
 						<table align="center">
