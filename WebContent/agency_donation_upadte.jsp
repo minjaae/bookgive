@@ -105,7 +105,10 @@
 								</tr>
 								<tr>
 									<td>거래상태</td>
-									<td style="font-size: 15px;">진행중</td>
+									<td style="font-size: 15px;">
+									<input type="radio" name="donation_state" value="false" checked="checked"> 진행중  &ensp;
+<input type="radio" name="donation_state" value="true"> 거래 완료</td></tr>
+									</td>
 								<tr>
 								<tr>
 									<td>비밀번호</td>

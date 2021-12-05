@@ -33,6 +33,7 @@ public class iBoardUpdateServlet extends HttpServlet {
 		upBean.setTitle(request.getParameter("title"));
 		upBean.setContent(request.getParameter("content"));
 		upBean.setPass(request.getParameter("pass"));
+		upBean.setDonationState(Boolean.parseBoolean(request.getParameter("donation_state")));
 
 		String upPass = upBean.getPass();
 		String inPass = bean.getPass();

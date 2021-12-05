@@ -137,7 +137,7 @@ public class InstitutionBoardMgr {
 			String content = multi.getParameter("content");
 				content = UtilMgr.replace(content, "<", "&lt;");
 			sql = "insert institution_donation(userID,content,title,ref,pos,depth,created_at,pass,count,filename,filesize,book_status,donation_state)";
-			sql += "values(?, ?, ?, ?, 0, 0, now(), ?, 0,?, ?, ? ,false)";
+			sql += "values(?, ?, ?, ?, 0, 0, now(), ?, 0,?, ?, ?,false)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, multi.getParameter("userID"));
 			pstmt.setString(2, content);
@@ -146,7 +146,7 @@ public class InstitutionBoardMgr {
 			pstmt.setString(5, multi.getParameter("pass"));
 			pstmt.setString(6, filename);
 			pstmt.setInt(7, filesize);
-			pstmt.setString(8, multi.getParameter("book_statue"));
+			pstmt.setString(8, multi.getParameter("book_status"));
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -177,6 +177,7 @@ public class InstitutionBoardMgr {
 				bean.setPos(rs.getInt("pos"));
 				bean.setRef(rs.getInt("ref"));
 				bean.setDepth(rs.getInt("depth"));
+				bean.setBookStatus(rs.getString("book_status"));
 				bean.setCreatedAt(rs.getDate("created_at"));
 				bean.setCount(rs.getInt("count"));
 				bean.setFilename(rs.getString("filename"));
@@ -245,12 +246,13 @@ public class InstitutionBoardMgr {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update institution_donation set userID=?,title=?,content=? where institution_donation_id=?";
+			sql = "update institution_donation set userID=?,title=?,content=?,donation_state=? where institution_donation_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getUserID());
 			pstmt.setString(2, bean.getTitle());
 			pstmt.setString(3, bean.getContent());
-			pstmt.setInt(4, bean.getInstitutionDonationId());
+			pstmt.setBoolean(4, bean.getDonationState());
+			pstmt.setInt(5, bean.getInstitutionDonationId());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

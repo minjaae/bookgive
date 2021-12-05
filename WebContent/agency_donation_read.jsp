@@ -17,6 +17,7 @@
 	String name = bean.getUserID();
 	String subject = bean.getTitle();
 	Date regdate = bean.getCreatedAt();
+	String bookstatus = bean.getBookStatus();
 	String content = bean.getContent();
 	String filename = bean.getFilename();
 	int filesize = bean.getFilesize();
@@ -113,7 +114,7 @@
 						<textarea readonly><%=content%></textarea>
 
 						<p style="background: #fafaf0; font-size: 15px; color: #000;">
-							책 상태 | good <br> 첨부파일 |
+							책 상태 | <%=bookstatus%> <br> 첨부파일 |
 							<%
 							if (filename != null && !filename.equals("")) {
 						%>

@@ -95,6 +95,15 @@
 										style="width: 100%; height: 350px; margin-top: 1rem; border-color: #537755; resize: none;"></textarea></td>
 							</tr>
 							<tr>
+								<td>책상태  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;
+												
+<input type="radio" name="book_status" value="good" checked="checked"> good &emsp;&emsp;
+<input type="radio" name="book_status" value="soso"> soso &emsp;&emsp;
+<input type="radio" name="book_status" value="bad"> bad &nbsp;
+
+							 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;</td>
+							</tr>
+							<tr>
 								<td>비밀번호<input type="password" name="pass" maxlength="30"
 									style="width: 60%; margin-left: 1rem; margin-top: 1rem; border-color: #537755; border-style: solid;"></td>
 							</tr>
