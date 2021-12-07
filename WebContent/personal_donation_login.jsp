@@ -261,7 +261,7 @@
 		</div>
 		
 		&nbsp;
-		<form name="searchFrm" method="get" action="personal_donation.jsp">
+		<form name="searchFrm" method="get" action="personal_donation_login.jsp">
 			<table align="center" width="600" cellpadding="4" cellspacing="0">
 				<tr>
 					<td align="center" valign="bottom"><select name="keyField"
