@@ -48,12 +48,12 @@ public class InstitutionBoardMgr {
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
 			} else {
-				sql = "select * from  institution_donation where " + keyField + " like ? ";
-				sql += "order by ref desc, pos limit ? , ?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, "%" + keyWord + "%");
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, end);
+				sql = "select * from institution_donation where " + keyField + " like ? ";
+	            sql += "order by ref desc, pos limit ?, ?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, "%" + keyWord + "%");
+	            pstmt.setInt(2, start);
+	            pstmt.setInt(3, end);
 			}
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -92,7 +92,7 @@ public class InstitutionBoardMgr {
 				sql = "select count(institution_donation_id) from institution_donation";
 				pstmt = con.prepareStatement(sql);
 			} else {
-				sql = "select count(institution_donation_id from  institution_donation where " + keyField + " like ? ";
+				sql = "select count(institution_donation_id) from  institution_donation where " + keyField + " like ? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");
 			}

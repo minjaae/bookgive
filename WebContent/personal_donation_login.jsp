@@ -266,7 +266,7 @@
 				<tr>
 					<td align="center" valign="bottom"><select name="keyField"
 						size="1">
-							<option value="userID">이 름</option>
+							<option value="userID">아이디</option>
 							<option value="title">제 목</option>
 							<option value="content">내 용</option>
 					</select> <input size="16" name="keyWord"> <input size="16"
